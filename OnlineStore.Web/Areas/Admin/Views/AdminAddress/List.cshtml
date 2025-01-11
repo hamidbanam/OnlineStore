@@ -1,0 +1,110 @@
+﻿@using OnlineStore.Domain.ViewModel.UserPanel
+@model List<AddressListViewModel>
+@{
+    ViewData["Title"] = "نشانی ها";
+}
+<div class="row clearfix">
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="card">
+            <div class="dt-buttons m-3">
+                <button onclick="Create(@ViewData["UserId"])" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">افزودن نشانی جدید</button>
+            </div>
+            <div class="header">
+                <h2>
+                    <strong>@ViewData["Title"]</strong>
+                </h2>
+            </div>
+            <div class="body">
+                <div class="demo">
+                    <div class="row">
+                        @foreach (var item in Model)
+                        {
+                            <div class="col-md-3 col-sm-6">
+                                <div class="pricingTable m-1">
+                                    <div class="card">
+                                        <div class="m-b-20">
+                                            <div class="contact-grid">
+                                                <div class="profile-header bg-dark">
+                                                    <div class="user-name">@item.UserName</div>
+                                                    <div class="name-center">@item.PostCod</div>
+                                                </div>
+                                                <p>
+                                                    <br />
+                                                    @item.TotalAddress
+                                                    <br />
+                                                    <br>@item.State
+                                                    <br />
+                                                    <br>@item.City
+                                                </p>
+                                                <div>
+                                                    <span class="phone">
+                                                        <i class="material-icons">phone</i>@item.Mobile
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="button-demo">
+                                        <a onclick="Edit(@item.AddressId)" class="btn btn-primary btn-border-radius waves-effect">ویرایش</a>
+                                        <a onclick="confirmDelete('@Url.Action("Delete","AdminAddress",new{id=item.AddressId,userId=item.UserId})')" class="btn btn-danger btn-border-radius waves-effect">حذف</a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">افزودن نشانی </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body" id="bodyModal">
+                ...
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script>
+        function Create(userId) {
+            $.get("/Admin/Create-Address/" + userId, function (res) {
+                $("#exampleModalCenter").modal('show');
+                $("#bodyModal").html(res);
+            });
+        }
+
+        function Edit(addressId) {
+            $.get("/Admin/Edit-Address/" + addressId, function (res) {
+                $("#exampleModalCenter").modal('show');
+                $("#bodyModal").html(res);
+                $("#exampleModalCenterTitle").html("ویرایش نشانی");
+            });
+        }
+
+        function confirmDelete(url) {
+            Swal.fire({
+                text: "آیا از انجام این عملیات مطمئن هستید؟",
+                icon: "question",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "بلـــــــــه",
+                cancelButtonText: "خیــــــــر"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    location.href = url;
+                }
+
+            });
+        }
+    </script>
+}

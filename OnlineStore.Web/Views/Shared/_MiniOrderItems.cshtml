@@ -1,0 +1,46 @@
+﻿@using OnlineStore.Application.Extensions
+@using OnlineStore.Application.Static
+@using OnlineStore.Domain.Model.Order
+@using OnlineStore.Domain.Model.Product.Color
+@using OnlineStore.Domain.Model.Product.Product
+@model OrderDetail
+@{
+    Product? product = Model.Product;
+    ProductColor? productColor = Model.ProductColor;
+}
+@if(Model!=null)
+{
+    <div class="mini-cart-product">
+        <div class="mini-cart-product-thumbnail">
+            <a asp-area="" asp-controller="Home" asp-action="ProductDetail" asp-route-slug="@product.Slug">
+                <img src="@PathTools.ProductImage/@product.Image" alt="@product.ProductTitle">
+            </a>
+        </div>
+        <div class="mini-cart-product-detail">
+
+            <div class="mini-cart-product-title">
+                <a asp-area="" asp-controller="Home" asp-action="ProductDetail" asp-route-slug="@product.Slug">
+                    @product.ProductTitle
+                </a>
+            </div>
+            <div class="mini-cart-purchase-info">
+                <div class="mini-cart-product-meta">
+                    <span class="fa-num">@Model.Quantity عدد</span>
+                    @if (productColor != null)
+                    {
+                        <span class="color" style="background-color: @productColor.Color"></span>
+                    }
+                </div>
+                @{
+                    int price = product?.Price ?? 0;
+                    if (productColor != null)
+                    {
+                        price = productColor.Price;
+                    }
+                }
+                <div class="mini-cart-product-price fa-num">@price.ToMoney() <span class="currency">تومان</span></div>
+            </div>
+            <button class="mini-cart-product-remove" onclick="deleteOrderDetails(@Model.DetailId)"></button>
+        </div>
+    </div>
+}

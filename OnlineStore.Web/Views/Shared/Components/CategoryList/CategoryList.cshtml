@@ -1,0 +1,24 @@
+﻿@using OnlineStore.Application.Static
+@using OnlineStore.Domain.ViewModel.Admin.Category
+@model List<CategoryListViewModel>
+
+
+<div class="swiper-wrapper" id="swiper-wrapper-efe44daac2e7e412" aria-live="polite" style="transform: translate3d(0px, 0px, 0px);">
+    <!-- Slides -->
+    @if (Model != null)
+    {
+        @foreach (var item in Model.Where(c => c.ParentId == null))
+        {
+            <div class="swiper-slide" role="group" style="width: 159.8px; margin-left: 10px;">
+                <div class="category-item">
+                    <a asp-area="" asp-controller="Home" asp-action="ProductList" asp-route-CategoryId="@item.CategoryId">
+                        <img src="@PathTools.CategoryImage/@item.ImageCategory" class="category-img" alt="@item.CategoryTitle">
+                        <span class="category-title">@item.CategoryTitle</span>
+                    </a>
+                </div>
+            </div>
+        }
+    }
+
+</div>
+

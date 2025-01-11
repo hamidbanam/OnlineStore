@@ -1,0 +1,24 @@
+﻿@using OnlineStore.Domain.ViewModel.Admin.Category
+@model List<CategoryListViewModel>
+@if (Model != null && Model.Any())
+{
+    @foreach (var item in Model.Where(c => c.ParentId == null))
+    {
+        <li class="category--arrow-left ">
+            <a asp-area="" asp-controller="Home" asp-action="ProductList" asp-route-CategoryId="@item.CategoryId">@item.CategoryTitle</a>
+            <ul>
+                @if (Model.Any(c => c.ParentId == item.CategoryId))
+                {
+                    @foreach (var sub in Model.Where(c => c.ParentId == item.CategoryId))
+                    {
+                        <li class="current">
+                            <a asp-area="" asp-controller="Home" asp-action="ProductList" asp-route-CategoryId="@sub.CategoryId">@sub.CategoryTitle</a>
+                        </li>
+                    }
+                }
+
+            </ul>
+        </li>
+    }
+
+}

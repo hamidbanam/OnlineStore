@@ -1,0 +1,94 @@
+﻿@using OnlineStore.Application.Extensions
+@using OnlineStore.Application.Generators
+@using OnlineStore.Domain.Enum.Wallet
+@using OnlineStore.Domain.ViewModel.Wallet
+@model List<WalletViewModel>
+@{
+    ViewData["Title"] = "کیف پول";
+}
+<div class="row">
+    <div class="col-12">
+        <div class="ui-box bg-white mb-5">
+            @if (Model != null && Model.Any())
+            {
+                <div class="ui-box-title">@ViewData["Title"]</div>
+                <div class="ui-box-title align-items-center justify-content-between">
+                    <div class="d-flex justify-content-between">
+                        <div class="fa-num">
+                            <span>موجودی کیف پول: @Model.FirstOrDefault().BalanceAmount.ToMoney() تومان</span>
+                        </div>
+                    </div>
+                </div>
+            }
+            <div class="col-sm-12">
+                <partial name="_ChargeWallet" />
+            </div>
+            <hr />
+            <div class="ui-box-content">
+                @if (Model != null && Model.Any())
+                {
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>مبلغ</th>
+                                    <th>نوع</th>
+                                    <th>وضعیت</th>
+                                    <th>تاریخ</th>
+                                    <th>توضیحات</th>
+                                    <th>کد پیگیری</th>
+                                  
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td hidden class="fa-num">@item.WalletId</td>
+                                        <td class="fa-num">@item.Price.ToMoney()</td>
+                                        <td class="fa-num">
+                                            @switch (item.Type)
+                                            {
+                                                case TransactionType.Deposit:
+                                                    <span class="badge bg-success rounded-pill">@item.Type.GetDisplayName()</span>
+                                                    break;
+
+                                                case TransactionType.Creditor:
+                                                    <span class="badge bg-danger rounded-pill">@item.Type.GetDisplayName()</span>
+                                                    break;
+                                            }
+                                        </td>
+                                        <td class="fa-num">
+                                            @if (item.Payed)
+                                            {
+                                                <span class="badge bg-success rounded-pill">پرداخت شده</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge bg-danger rounded-pill">پرداخت نشده</span>
+                                            }
+                                        </td>
+                                        <td class="fa-num">@item.CreateDate.ToShamsi()</td>
+                                        <td class="fa-num">
+                                            @item.Description
+                                        </td>
+                                        <td class="fa-num">
+                                            @item.RefId
+                                        </td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                }
+                else
+                {
+                    <partial name="_UserPanelNotFoundItem" />
+                }
+
+            </div>
+        </div>
+    </div>
+</div>

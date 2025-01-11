@@ -1,0 +1,16 @@
+﻿@using OnlineStore.Domain.ViewModel.Admin.Feature
+@model EditFeatureViewModel
+
+@{
+    ViewData["Title"] = "ویرایش ویژگی";
+}
+<form asp-area="Admin" asp-controller="AdminFeature" asp-action="Edit" method="post">
+    <input type="hidden" asp-for="FeatureId" />
+    <div class="form-group">
+        <div class="form-line">
+            <input asp-for="Title" type="text" class="form-control" placeholder=" عنوان" />
+        </div>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary m-t-15 waves-effect">ویرایش</button>
+</form>

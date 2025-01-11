@@ -1,0 +1,56 @@
+﻿@using OnlineStore.Domain.ViewModel.UserPanel
+@model CreateAddressViewModel
+@{
+    ViewData["Title"] = " افزودن آدرس جدید";
+}
+<div class="ui-box bg-white mb-5">
+    <div class="ui-box-title">@ViewData["Title"]</div>
+    <div class="row">
+        <div class="col-md-12 mb-md-0 mb-4">
+            <!-- start of add-address-form -->
+            <form asp-area="UserPanel" asp-controller="Address" asp-action="Create" method="post" class="add-address-form">
+                <input type="hidden" asp-for="UserId" />
+                <div class="row">
+                    <div class="col-lg-6 mb-3">
+                        <!-- start of form-element -->
+                        <div class="form-element-row">
+                            <label class="label fs-7">استان</label>
+                            <input asp-for="State" type="text" class="form-control" placeholder="استان">
+                        </div>
+                        <!-- end of form-element -->
+                    </div>
+                    <div class="col-lg-6 mb-3">
+                        <!-- start of form-element -->
+                        <div class="form-element-row">
+                            <label class="label fs-7">شهر</label>
+                            <input asp-for="City" type="text" class="form-control" placeholder="شهر">
+                        </div>
+                        <!-- end of form-element -->
+                    </div>
+                    <div class="col-lg-12 mb-3">
+                        <!-- start of form-element -->
+                        <div class="form-element-row">
+                            <label class="label fs-7">کدپستی</label>
+                            <input value="" asp-for="PostCod" type="text"  class="form-control" placeholder="کدپستی باید ۱۰ رقم و بدون خط تیره باشد">
+                        </div>
+                        <!-- end of form-element -->
+                    </div>
+                    <div class="col-12 mb-3">
+                        <!-- start of form-element -->
+                        <div class="form-element-row">
+                            <label class="label fs-7">آدرس</label>
+                            <textarea asp-for="TotalAddress" rows="5" class="form-control" placeholder="آدرس کامل"></textarea>
+                        </div>
+                        <!-- end of form-element -->
+                    </div>
+                </div>
+                <div class="remodal-footer">
+                    <button type="submit" data-remodal-action="" class="btn btn-sm btn-primary px-3">ثبت</button>
+                </div>
+                <div asp-validation-summary="All"></div>
+            </form>
+            <!-- end of add-address-form -->
+        </div>
+    </div>
+</div>
+

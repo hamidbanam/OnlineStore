@@ -1,0 +1,93 @@
+﻿@using OnlineStore.Application.Generators
+@using OnlineStore.Domain.ViewModel.ContactUs
+@model FilterContactUsViewModel
+@{
+    ViewData["Title"] = "لیست تماس باما";
+}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="header">
+                <h2>جستجو</h2>
+            </div>
+            <div class="body">
+                <form asp-area="Admin" asp-controller="AdminContactUs" asp-action="List" id="filter-search">
+                    <input type="hidden" asp-for="Page">
+                    <div class="row">
+
+                        <div class="col-md-3 ">
+                            <div class="form-group">
+                                <div class="select-wrapper">
+                                    <select asp-for="Status" asp-items="@Html.GetEnumSelectList<ContactUsStatus>()"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-border-radius w-50">جستجو</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="card">
+            <div class="header">
+                <h2>@ViewData["Title"]</h2>
+            </div>
+            <div class="body">
+                <div class="table-responsive">
+                    <div id="tableExport_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                        <table id="tableExport" class="display table table-hover table-checkable order-column width-per-100 dataTable" role="grid" aria-describedby="tableExport_info">
+                            <thead>
+                                <tr role="row">
+                                    <th class="center">عنوان </th>
+                                    <th class="center">نام و نام خانوادگی</th>
+                                    <th class="center">ایمیل</th>
+                                    <th class="center">موبایل</th>
+                                    <th class="center">وضعیت </th>
+                                    <th class="center">تاریخ </th>
+                                    <th class="center">اقدام</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Entities)
+                                {
+                                    <tr role="row" class="odd">
+                                        <td class="center">@item.Title</td>
+                                        <td class="center">@item.FullName</td>
+                                        <td class="center">@item.Email</td>
+                                        <td class="center">@item.Mobile</td>
+                                        <td class="center">
+                                            @if (item.Answer != null)
+                                            {
+                                                <span class="label l-bg-green shadow-style">پاسخ داده شده</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="label l-bg-orange shadow-style">در انتظار بررسی</span>
+                                            }
+                                        </td>
+                                        <td class="center"> @item.CreateDate.ToShamsi()</td>
+
+                                        <td class="center">
+                                            <a asp-area="Admin" asp-controller="AdminContactUs" asp-action="Detail" asp-route-id="@item.ContactUsId" class="text-info">
+                                                <i class="material-icons">create</i>
+                                            </a>
+
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <div class="dataTables_info" id="tableExport_info" role="status" aria-live="polite">نمایش @Model.StartPage تا @Model.Entities.Count() از @Model.AllEntitiesCount ورودی</div>
+                        <partial name="_AdminPaging" model="@Model.GetCurrentPaging()" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

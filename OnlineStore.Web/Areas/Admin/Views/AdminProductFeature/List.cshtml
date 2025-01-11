@@ -1,0 +1,132 @@
+﻿@using OnlineStore.Domain.ViewModel.Admin.ProductFeature
+@model FilterProductFeatureViewModel
+
+@{
+    ViewData["Title"] = "ویژگی محصول";
+}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="header">
+                <h2>جستجو</h2>
+            </div>
+            <div class="body">
+                <form asp-area="Admin" asp-controller="AdminProductFeature" asp-action="List" id="filter-search">
+                    <input type="hidden" asp-for="Page">
+                    <input type="hidden" asp-for="ProductId">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input asp-for="Title" type="text" class="form-control" placeholder="عنوان">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-border-radius w-50">جستجو</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="card">
+            <div class="header">
+                <h2>@ViewData["Title"]</h2>
+            </div>
+            <div class="body">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <a onclick="Create(@Model.ProductId)"  class="btn btn-success btn-border-radius waves-effect">افزودن ویژگی جدید</a>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <div id="tableExport_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                        <table id="tableExport" class="display table table-hover table-checkable order-column width-per-100 dataTable" role="grid" aria-describedby="tableExport_info">
+                            <thead>
+                                <tr role="row">
+                                    <th class="center">عنوان محصول </th>
+                                    <th class="center">عنوان ویژگی </th>
+                                    <th class="center">مقدار ویژگی</th>
+                                    <th class="center">الویت</th>
+                                    <th class="center">اقدام</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                  @foreach (var item in Model.Entities)
+                                {
+                                    <tr role="row" class="odd" id="tr_@item.ProductFeatureId">
+                                      
+                                        <td class="center">@item.ProductTitle</td>
+                                        <td class="center">@item.FeatureTitle</td>
+                                        <td class="center">@item.FeatureValue</td>
+                                        <td class="center">@item.Order</td>
+                                  
+                                        <td class="center">
+                                            <a onclick="Edit(@item.ProductFeatureId)" class="text-warning">
+                                                <i class="material-icons">create</i>
+                                            </a>
+                                            <a onclick="confirmDeleteProductFeature(@item.ProductFeatureId)" class="text-danger">
+                                                <i class="material-icons">delete_forever </i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <div class="dataTables_info" id="tableExport_info" role="status" aria-live="polite">نمایش @Model.StartPage تا @Model.Entities.Count() از @Model.AllEntitiesCount ورودی</div>
+                        <partial name="_AdminPaging" model="@Model.GetCurrentPaging()" />
+                    </div>
+                </div>
+                <a asp-area="Admin" asp-controller="AdminProduct" asp-action="List" type="button" class="btn btn-primary waves-effect">
+                    <i class="material-icons">low_priority</i>
+                    <span>بازگشت به لیست محصولات</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<partial name="_Modal">
+    @section Scripts {
+        <script>
+            function Create(productId) {
+                $.get("/Admin/Create-Feature/"+productId, function (res) {
+                    $("#exampleModalCenter").modal('show');
+                    $("#bodyModal").html(res);
+                });
+            }
+
+            function Edit(featureId) {
+                $.get("/Admin/Edit-ProductFeature/" + featureId, function (res) {
+                    $("#exampleModalCenter").modal('show');
+                    $("#bodyModal").html(res);
+                    $("#exampleModalCenterTitle").html("ویرایش");
+                });
+            }
+
+                   function confirmDeleteProductFeature(id) {
+                Swal.fire({
+                    text: "آیا از انجام این عملیات مطمئن هستید؟",
+                    icon: "question",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "بلـــــــــه",
+                    cancelButtonText: "خیــــــــر"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.get("/Admin/AdminProductFeature/Delete/" + id, function () {
+                            $("#tr_" + id).hide('slow');
+                        });
+
+                    }
+
+                });
+            }
+        </script>
+    }

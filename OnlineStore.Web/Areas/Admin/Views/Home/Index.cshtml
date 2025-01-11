@@ -1,0 +1,181 @@
+﻿@using OnlineStore.Application.Extensions
+@using OnlineStore.Application.Generators
+@using OnlineStore.Domain.Enum.Product
+@using OnlineStore.Domain.Model.Product.Comment
+@{
+    ViewData["Title"] = "خانه";
+    int sumPriceForYear = (int)TempData["OrderSumPriceForYear"];
+    int sumPriceForMonth = (int)TempData["OrderSumPriceForMonth"];
+    List<ProductComment> comments = TempData["ProductCommentList"] as List<ProductComment>;
+}
+<!-- Widgets -->
+<div class="row">
+
+    <div class="col-lg-3 col-sm-6">
+        <div class="info-box7 l-bg-purple order-info-box7">
+            <div class="info-box7-block ">
+                <h4 class="m-b-20">سفارشات تکمیل شده در سال </h4>
+                <h2 class="text-right "><i class="fas fa-business-time pull-left "></i><span>@TempData["OrderCountForYear"]</span></h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-sm-6">
+        <div class="info-box7 l-bg-green order-info-box7">
+            <div class="info-box7-block">
+                <h4 class="m-b-20">مجموعه درآمد سال </h4>
+                <h2 class="text-right"><i class="fas fa-dollar-sign pull-left"></i><span>@sumPriceForYear.ToMoney() تومان</span></h2>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-sm-6">
+        <div class="info-box7 l-bg-orange order-info-box7">
+            <div class="info-box7-block">
+                <h4 class="m-b-20">سفارشات تکمیل شده در ماه</h4>
+                <h2 class="text-right"><i class="fas fa-business-time pull-left "></i><span>@TempData["OrderCountForMonth"]</span></h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-sm-6">
+        <div class="info-box7 l-bg-cyan order-info-box7">
+            <div class="info-box7-block">
+                <h4 class="m-b-20"> مجموع درآمد ماه</h4>
+                <h2 class="text-right"><i class="fas fa-dollar-sign pull-left"></i><span>@sumPriceForMonth.ToMoney() تومان</span></h2>
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+<div class="row">
+
+    <div class="col-lg-3 col-sm-6">
+        <div class="info-box7 l-bg-purple order-info-box7">
+            <div class="info-box7-block ">
+                <h4 class="m-b-20">مجموعه تیکت ها </h4>
+                <h2 class="text-right "><i class="fas fa-chart-line pull-left"></i><span>@TempData["AllTicketCount"]</span></h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-sm-6">
+        <div class="info-box7 l-bg-green order-info-box7">
+            <div class="info-box7-block">
+                <h4 class="m-b-20">تیکت های در انتظار پاسخ</h4>
+                <h2 class="text-right"><i class="fas fa-chart-line pull-left"></i><span>@TempData["PenddingTicketCount"]</span></h2>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-3 col-sm-6">
+        <div class="info-box7 l-bg-green order-info-box7">
+            <div class="info-box7-block">
+                <h4 class="m-b-20">تیکت های پاسخ داده شده</h4>
+                <h2 class="text-right"><i class="fas fa-chart-line pull-left"></i><span>@TempData["AnswerTicketCount"]</span></h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-sm-6">
+        <div class="info-box7 l-bg-orange order-info-box7">
+            <div class="info-box7-block">
+                <h4 class="m-b-20">تیکت های بسته شده</h4>
+                <h2 class="text-right"><i class="fas fa-chart-line pull-left"></i><span>@TempData["CloseTicketCount"]</span></h2>
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+<div class="row">
+
+    <div class="col-lg-4 col-sm-12">
+        <div class="info-box7 l-bg-purple order-info-box7">
+            <div class="info-box7-block ">
+                <h4 class="m-b-20">مجموعه تماس با ما </h4>
+                <h2 class="text-right "><i class="fas fa-chart-line pull-left"></i><span>@TempData["AllConTactUsCount"]</span></h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-12">
+        <div class="info-box7 l-bg-green order-info-box7">
+            <div class="info-box7-block">
+                <h4 class="m-b-20">تماس با ما در انتظار پاسخ</h4>
+                <h2 class="text-right"><i class="fas fa-chart-line pull-left"></i><span>@TempData["PenddingConTactUsCount"]</span></h2>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-4 col-sm-12">
+        <div class="info-box7 l-bg-green order-info-box7">
+            <div class="info-box7-block">
+                <h4 class="m-b-20">تماس با ما پاسخ داده شده</h4>
+                <h2 class="text-right"><i class="fas fa-chart-line pull-left"></i><span>@TempData["AnswerConTactUsCount"]</span></h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- #END# Widgets -->
+@if (comments != null && comments.Any())
+{
+    <div class="row clearfix">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="card">
+                <div class="header">
+                    <h2>
+                        <strong>لیست </strong>نظرات محصولات
+                    </h2>
+                </div>
+                <div class="body">
+                    <div id="new-orders" class="media-list position-relative">
+                        <div class="table-responsive">
+                            <table id="new-orders-table" class="table table-hover table-xl mb-0">
+                                <thead>
+                                    <tr>
+                                        <th class="center">عنوان</th>
+                                        <th class="center">متن</th>
+                                        <th class="center">مزایا</th>
+                                        <th class="center">معایب</th>
+                                        <th class="center">وضعیت</th>
+                                        <th class="center">تاریخ ایجاد</th>
+                                        <th class="center">اقدام</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @foreach (var item in comments)
+                                    {
+                                        <tr role="row" class="odd">
+
+                                            <td class="center">@item.Title</td>
+                                            <td class="center">@item.Text</td>
+                                            <td class="center">@item.Advantages</td>
+                                            <td class="center">@item.Disadvantages</td>
+                                            <td class="center">
+                                                <span class="label l-bg-purple shadow-style">@item.Status.GetDisplayName()</span>
+                                            </td>
+                                            <td class="center">@item.CreateDate.ToShamsi()</td>
+                                            <td class="center">
+                                                <a asp-area="Admin" asp-controller="AdminProductComment" asp-action="ConfirmComment" asp-route-commentId="@item.CommentId" asp-route-url="@Url.Action("Index","Home",new{Area="Admin"})" class="text-success">
+                                                    <i class="material-icons">check_circle</i>
+                                                </a>
+                                                <a asp-area="Admin" asp-controller="AdminProductComment" asp-action="RejectComment" asp-route-commentId="@item.CommentId" asp-route-url="@Url.Action("Index","Home","Admin")" class="text-danger">
+                                                    <i class="material-icons">highlight_off</i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

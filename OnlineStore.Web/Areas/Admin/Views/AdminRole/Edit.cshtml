@@ -1,0 +1,67 @@
+﻿@using OnlineStore.Domain.ViewModel.Admin.Role
+@model EditRoleViewModel
+@{
+    ViewData["Title"] = "ویرایش نقش";
+}
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <form asp-area="Admin" asp-controller="AdminRole" asp-action="Edit" method="post">
+            <input type="hidden" asp-for="RoleId" />
+            <div class="row clearfix">
+                <div class="col-md-7">
+                    <div class="card">
+                        <div class="body">
+                            <h2 class="card-inside-title">@ViewData["Title"]</h2>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="material-icons">person</i>
+                                </span>
+                                <div class="form-line">
+                                    <input asp-for="RoleTitle" type="text" class="form-control date" placeholder="عنوان نقش">
+                                </div>
+                            </div>
+                            <Input type="submit" class="btn bg-green waves-effect" value="ثبت اطلاعات">
+                            <div asp-validation-summary="All"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="card">
+                        <div class="body">
+                            <h2 class="card-inside-title">سطح دسترسی کاربر</h2>
+                            <ul>
+                                @foreach (var item in Model.Permissions.Where(p => p.ParentId == null))
+                                {
+                                    <li>
+                                        <div class="form-check m-l-10">
+                                            <label class="form-check-label">
+                                                <input class="form-check-input" name="SelectedPermission" @((Model.SelectedPermission.Any(p=>p==item.PermissionId))?"checked":"")  type="checkbox" value="@item.PermissionId"> @item.PermissionName
+                                                <span class="form-check-sign">
+                                                    <span class="check"></span>
+                                                </span>
+                                            </label>
+                                        </div>
+                                        @if (Model.Permissions.Any(p => p.ParentId == item.PermissionId))
+                                        {
+                                            @foreach (var sub in Model.Permissions.Where(p => p.ParentId == item.PermissionId))
+                                            {
+                                                <div class="form-check m-l-10" style="margin-right:25px">
+                                                    <label class="form-check-label">
+                                                        <input class="form-check-input" name="SelectedPermission" @((Model.SelectedPermission.Any(p => p == sub.PermissionId)) ? "checked" : "") type="checkbox" value="@sub.PermissionId" /> @sub.PermissionName
+                                                        <span class="form-check-sign">
+                                                            <span class="check"></span>
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            }
+                                        }
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

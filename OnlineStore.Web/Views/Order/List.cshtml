@@ -1,0 +1,157 @@
+﻿@using OnlineStore.Application.Extensions
+@using OnlineStore.Application.Services.Interface
+@using OnlineStore.Domain.ViewModel.Client.Order
+@using OnlineStore.Domain.ViewModel.UserPanel
+@model OrderViewModel
+@inject IUserService userService
+@{
+    ViewData["Title"] = "سبد خرید";
+    int productPrice = Model?.orderDetails.Sum(od => od.Price * od.Quantity) ?? 0;
+    int orderDetailsCount = Model?.orderDetails?.Count() ?? 0;
+    List<AddressListViewModel> addressList = await userService.GetAddressListAsync(User.GetUserById());
+}
+<div class="row">
+    @if (Model != null && Model.orderDetails != null && Model.orderDetails.Any())
+    {
+        <div class="ui-box bg-white payment-methods mb-3">
+            <div class="ui-box-content col-md-12">
+                <!-- start of custom-radio-outline -->
+                <div class="col-md-6 mb-3">
+                    <a asp-area="UserPanel" asp-controller="Address" asp-action="Create" asp-route-url="@Url.Action("List","Order")" class="btn btn-outline-light">آدرس  جدید <i class="ri-add-line ms-2"></i></a>
+                </div>
+                <div class="col-md-12 ">
+                    <select id="mySelect" class="form-select " aria-label="Default select example">
+                        <option disabled selected>آدرس ارسال مرسوله راانتخاب نمایید</option>
+                        @foreach (var item in addressList)
+                        {
+                            <option value="@item.AddressId">@item.State @item.City @item.TotalAddress</option>
+                        }
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-9 col-lg-8">
+            <!-- start of nav-tabs -->
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <button class="nav-link fs-6 fw-bold active" id="nav-1-tab" data-bs-toggle="tab" data-bs-target="#nav-1" type="button" role="tab" aria-controls="nav-1" aria-selected="true">
+                        سبد خرید
+                        <span class="counter fa-num">@orderDetailsCount</span>
+                    </button>
+                </div>
+            </nav>
+            <!-- end of nav-tabs -->
+            <!-- start of tab-content -->
+            <div class="tab-content" id="nav-tabContent">
+                <!-- start of tab-pane -->
+                <div class="tab-pane py-4 fade show active" id="nav-1" role="tabpanel" aria-labelledby="nav-1-tab">
+                    <div class="ui-box bg-white p-2">
+                        <div class="ui-box-content">
+                            <!-- start of cart-items -->
+                            <div class="cart-items">
+                                @foreach (var orderDetail in Model.orderDetails)
+                                {
+                                    <partial name="_OrderItems" model="@orderDetail" />
+                                }
+                            </div>
+                            <!-- end of cart-items -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- end of tab-pane -->
+            </div>
+            <!-- end of tab-content -->
+        </div>
+
+    }
+    else
+    {
+        <div class="col-xl-12 col-lg-12">
+            <partial name="_OrderEmpty" />
+        </div>
+    }
+
+    @if (Model != null && Model.orderDetails != null && Model.orderDetails.Any())
+    {
+        <div class="col-xl-3 col-lg-4">
+            <div class="ui-sticky ui-sticky-top">
+                <!-- start of checkout-bill -->
+                <div class="checkout-bill ui-box bg-white mb-5">
+                    <div class="checkout-bill-row">
+                        <div class="checkout-bill-row-label">قیمت کالاها (@orderDetailsCount)</div>
+                        <div class="checkout-bill-row-value fa-num">
+                            <span class="fs-6">@productPrice.ToMoney()</span> <span class="currency">تومان</span>
+                        </div>
+                    </div>
+                    <div class="checkout-bill-row">
+                        <div class="checkout-bill-row-label">تخفیف کالاها</div>
+                        <div class="checkout-bill-row-value fa-num">
+                            <span class="fs-6 text-danger">0</span>
+                            <span class="currency text-danger">تومان</span>
+                        </div>
+                    </div>
+                    <div class="checkout-bill-row">
+                        <div class="checkout-bill-row-label">جمع سبد خرید</div>
+                        <div class="checkout-bill-row-value fa-num">
+                            <span class="fs-6">@productPrice.ToMoney()</span> <span class="currency">تومان</span>
+                        </div>
+                    </div>
+                    <div class="checkout-bill-row checkout-bill-note">
+                        هزینه‌ی ارسال در ادامه بر اساس آدرس، زمان و نحوه‌ی ارسال انتخابی شما‌ محاسبه و به
+                        این مبلغ اضافه خواهد شد
+                    </div>
+                    <div class="checkout-bill-row checkout-bill-action">
+                        <a asp-area="" asp-controller="Order" asp-action="PayOrder" asp-route-OrderId="@Model.OrderId" class="btn btn-block btn-primary">ادامه فرایند خرید</a>
+                    </div>
+
+                </div>
+                <!-- end of checkout-bill -->
+                <!-- start of widget -->
+                <div class="widget p-0">
+                    <div class="widget-content widget--free-shipping">
+                        <div class="free-shipping--detail">
+                            <div class="title">ارسال رایگان سفارش</div>
+                            <div class="subtitle fa-num">سفارش‌های بالای 500 هزار تومان</div>
+                        </div>
+                        <div class="free-shipping--banner">
+                            <img src="/theme-assets/images/theme/free-shipping--banner.png" alt="ارسال رایگان سفارش">
+                        </div>
+                    </div>
+                </div>
+                <!-- end of widget -->
+            </div>
+        </div>
+    }
+
+</div>
+@section Scripts {
+    <script>
+
+           document.getElementById('mySelect').addEventListener('change', function() {
+            var selectedValue = this.value;
+                        if (selectedValue) {
+
+                var url = '/Order/AddAddressToOrder';
+                var params = 'id=' + selectedValue;
+
+                fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: params
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+            } else {
+                alert('لطفاً یک گزینه انتخاب کنید.');
+            }
+        });
+    </script>
+}

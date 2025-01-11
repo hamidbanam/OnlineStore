@@ -1,0 +1,52 @@
+﻿@using OnlineStore.Application.Extensions
+@using OnlineStore.Application.Generators
+@using OnlineStore.Application.Services.Interface
+@using OnlineStore.Domain.ViewModel.Client.Order
+@using OnlineStore.Domain.ViewModel.UserPanel
+@model OrderViewModel
+
+@{
+    ViewData["Title"] = "جزییات خرید";
+    int productPrice = Model?.orderDetails.Sum(od => od.Price * od.Quantity) ?? 0;
+}
+<div class="row">
+    <div class="col-12">
+        <div class="ui-box bg-white">
+            <div class="ui-box-title flex-wrap">
+                <a asp-area="UserPanel" asp-controller="Home" asp-action="Index"class="link border-bottom-0 fs-3 me-2"><i class="ri-arrow-right-fill"></i></a>
+                <span class="me-3">جزئیات سفارش</span>
+                <span class="fs-7 fa-num">@Model.CreateDate.ToShamsiDay() @Model.CreateDate.ToShamsiMonth().GetPersianMonthName() @Model.CreateDate.ToShamsiYear()</span>
+                <i class="ri-record-circle-fill fs-7 text-muted mx-2"></i>
+                <span class="font-en">@Model.RefId</span>
+            </div>
+            <div class="ui-box-content">
+                <!-- start of user-order-items -->
+                <div class="user-order-items">
+                    <!-- start of user-order-item -->
+                    <div class="user-order-item">
+                        <div class="user-order-item-header">
+                            <div>
+                                <span class="text-muted fw-bold">مبلغ کل:</span>
+                                <span class="fw-bold fa-num">
+                                    @productPrice.ToMoney()
+                                    <span>تومان</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="user-order-item-content">
+                            <div class="cart-items">
+
+                                @foreach (var item in Model.orderDetails)
+                                {
+                                    <partial name="_OrderDetailItems" model="item" />
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end of user-order-item -->
+                </div>
+                <!-- end of user-order-items -->
+            </div>
+        </div>
+    </div>
+</div>

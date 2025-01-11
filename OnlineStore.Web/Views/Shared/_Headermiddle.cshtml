@@ -1,0 +1,105 @@
+﻿@using OnlineStore.Application.Extensions
+@using OnlineStore.Application.Services.Interface
+@inject IProductService productService
+@{
+    int interestCount = (await productService.GetInterestsByUserId(User.GetUserById())).Count();
+}
+<div class="page-header--middle">
+    <div class="container">
+        <div class="row align-items-center py-4">
+            <div class="col-4">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <div class="user-options">
+                        <div class="user-option user-option--account">
+                            <a href="#" class="user-option-btn user-option-btn--account">
+                                <i class="ri-user-fill icon"></i>
+                                <i class="ri-arrow-down-s-fill icon fs-7 text-muted"></i>
+                            </a>
+                            <div class="user-option--dropdown user-option--dropdown-right">
+                                <div class="profile-user-info ui-box">
+                                    <div class="profile-detail">
+
+                                        @await Component.InvokeAsync("ProfileDetail")
+
+                                        <div class="user-options">
+                                            <ul>
+                                                @await Component.InvokeAsync("WalletBalance")
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <ul class="nav nav-items-with-icon flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" asp-area="UserPanel" asp-controller="User" asp-action="EditProfile">
+                                                <i class="nav-link-icon ri-user-2-line"></i>
+                                                پنل کاربری
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" asp-area="UserPanel" asp-controller="Tiket" asp-action="List">
+                                                <i class="nav-link-icon ri-notification-line"></i>
+                                                تیکت ها
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" asp-area="UserPanel" asp-controller="Home" asp-action="Index">
+                                                <i class="nav-link-icon ri-file-list-3-line"></i>
+                                                سفارش
+                                                های من
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Logout">
+                                                <i class="nav-link-icon ri-logout-box-r-line"></i>
+                                                خروج
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-option">
+                            <a asp-area="UserPanel" asp-controller="Home" asp-action="InterestList" class="user-option-btn user-option-btn--account">
+                                <i class="ri-heart-3-fill icon"></i>
+                                <span class="counter fa-num">@interestCount</span>
+                            </a>
+                        </div>
+                        @await Component.InvokeAsync("ShoppingCart")
+                    </div>
+                }
+                else
+                {
+                    <div class="user-options">
+                        <div class="user-option user-option--account">
+                            <a asp-area="" asp-controller="Account" asp-action="Login" class="user-option-btn user-option-btn--account">
+                                <i class="ri-login-circle-fill icon"></i>  ورود |
+                            </a>
+                            <a asp-area="" asp-controller="Account" asp-action="Register" class="user-option-btn user-option-btn--account">
+                                <i class="ri-registered-fill icon"></i> ثبت نام
+                            </a>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="col-4">
+                <div class="logo-container">
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="logo">
+                        <img src="/admin-assets/images/Logo/Logoo.png" class="mb-0" width="120" alt="Logoo.png">
+                    </a>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="">
+                    <div class="mega-search-box">
+                        <form asp-area="" asp-controller="Home" asp-action="ProductList">
+                            <div class="form-element-row with-btn">
+                                <input name="title" type="text" class="form-control" placeholder="جستجو کنید.....">
+                                <button type="submit" class="btn btn-primary"><i class="ri-search-2-line"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

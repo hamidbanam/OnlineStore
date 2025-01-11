@@ -1,0 +1,63 @@
+﻿@using OnlineStore.Application.Extensions
+@using OnlineStore.Application.Generators
+@using OnlineStore.Domain.Enum.Ticket
+@using OnlineStore.Domain.Model.Ticket
+@using OnlineStore.Domain.ViewModel.Tiket
+@model Ticket
+@{
+    ViewData["Title"] = "جزئیات تیکت";
+}
+
+<div class="ui-box bg-white mb-5">
+    <div class="ui-box-title">
+        @Model.Title
+    </div>
+    <div class="ui-box-content">
+        <!-- start of tickets -->
+        @if (Model != null)
+        {
+            <div class="tickets">
+                @foreach (var ticketMessage in Model.TicketMessages)
+                {
+                    if (Model.UserId == ticketMessage.SenderId)
+                    {
+                        <!-- start of ticket -->
+                        <div class="ticket fa-num">
+                            <div class="avatar"></div>
+                            <div class="text">
+                                @ticketMessage.Message
+                            </div>
+                            <div class="date">@ticketMessage.CeateDate.ToShamsi()</div>
+                        </div>
+                        <!-- end of ticket -->
+                    }
+                    else
+                    {
+                        <!-- start of ticket -->
+                        <div class="ticket reply fa-num">
+                            <div class="avatar staff"></div>
+                            <div class="text">
+                                @ticketMessage.Message
+                            </div>
+                            <div class="date">@ticketMessage.CeateDate.ToShamsi()</div>
+                        </div>
+                        <!-- end of ticket -->
+                    }
+                }
+            </div>
+        }
+        <!-- end of tickets -->
+        @if (Model.Status != TicketStatus.Close)
+        {
+            <partial name="_AnswerTicket" model="@(new ClientAsnwerTicketViewModel(){
+TicketId=Model.TicketId
+})" />
+        }
+        else
+        {
+            <span class="badge bg-danger rounded-pill">
+                @Model.Status.GetDisplayName()
+            </span>
+        }
+    </div>
+</div>

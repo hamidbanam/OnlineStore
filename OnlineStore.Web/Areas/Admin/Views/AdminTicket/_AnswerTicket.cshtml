@@ -1,0 +1,19 @@
+﻿@using OnlineStore.Domain.ViewModel.Tiket
+@model AdminAsnwerTicketViewModel
+
+<div class="chat-message clearfix">
+   <form asp-action="Answer">
+       <input type="hidden" asp-for="TicketId" />
+        <div class="form-group">
+            <div class="form-line">
+                <input type="text" asp-for="Message" class="form-control" placeholder="متن را اینجا وارد کنید .." />
+            </div>
+        </div>
+        <div class="chat-upload">
+            <button type="submit" class="btn btn-circle waves-effect waves-circle waves-float bg-deep-orange">
+                <i class="material-icons">insert_emoticon</i>
+            </button>
+        </div> 
+      
+   </form>
+</div>

@@ -1,0 +1,27 @@
+﻿@using OnlineStore.Application.Services.Interface
+@using OnlineStore.Domain.Model.User.User
+@inject IUserService userService
+@{
+    string userName = User.Identity.Name;
+    User user = await userService.GetUserByUserNameOrMobile(userName);
+}
+<li>
+    <div class="sidebar-profile clearfix">
+        <div class="profile-img">
+            <img src="/admin-assets/images/user/AdminUser.jpg" alt="profile">
+        </div>
+        <div class="profile-info">
+            @if (user.FirstName != null && user.LastName != null)
+            {
+                @user.FirstName @user.LastName
+            }
+            else
+            {
+                @user.UserName
+            }
+            <p>خوش آمدید !</p>
+        </div>
+    </div>
+</li>
+
+@await Component.InvokeAsync("LeftSideBar")

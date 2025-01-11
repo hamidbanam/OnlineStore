@@ -1,0 +1,28 @@
+﻿@using OnlineStore.Domain.ViewModel.Admin.Category
+@model List<CategoryListViewModel>
+<li class="nav-item mega-menu-btn">
+    <a class="nav-link" href="javascript:void(0)">
+        <i class="ri-apps-fill icon"></i>
+        دسته بندی محصولات</a>
+    <ul class="mega-menu mega-menu-3-col">
+        @if (Model != null && Model.Any())
+        {
+            @foreach (var item in Model.Where(c => c.ParentId == null))
+            {
+                <li class="nav-item-parent">
+                    <a asp-area="" asp-controller="Home" asp-action="ProductList" asp-route-CategoryId="@item.CategoryId">
+                        @item.CategoryTitle
+                    </a>
+                </li>
+                @foreach (var sub in Model.Where(c => c.ParentId == item.CategoryId))
+                {
+                    <li>
+                        <a asp-area="" asp-controller="Home" asp-action="ProductList" asp-route-CategoryId="@sub.CategoryId">
+                           @sub.CategoryTitle
+                        </a>
+                    </li>
+                }
+            }
+        }
+    </ul>
+</li>

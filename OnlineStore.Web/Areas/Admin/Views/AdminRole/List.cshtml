@@ -1,0 +1,59 @@
+﻿@using OnlineStore.Application.Generators
+@using OnlineStore.Domain.ViewModel.Admin.Role
+@model List<RoleViewModel>
+@{
+    ViewData["Title"] = "نقش ها";
+}
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="card">
+            <div class="body">
+                <div class="dt-buttons">
+                    <a asp-area="Admin" asp-controller="AdminRole" asp-action="Create" type="button" class="btn btn-success btn-border-radius waves-effect">افزودن نقش جدید</a>
+                </div>
+                <div class="table-responsive">
+                    <div id="tableExport_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                        <table id="tableExport" class="display table table-hover table-checkable order-column width-per-100 dataTable" role="grid" aria-describedby="tableExport_info">
+                            <thead>
+                                <tr role="row">
+                                    <th class="center">عنوان نقش</th>
+                                    <th class="center">فعال/غیرفعال</th>
+                                    <th class="center">تاریخ ایجاد</th>
+                                    <th class="center">اقدام</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr role="row" class="even">
+                                        <td class="center">@item.RoleTitle</td>
+                                        <td class="center">
+                                            @if (item.IsActive == true)
+                                            {
+                                                <div class="badge col-green">فعال</div>
+                                            }
+                                            else
+                                            {
+                                                <div class="badge col-red">غیرفعال</div>
+                                            }
+                                        </td>
+                                        <td class="center">@item.CreateDate.ToShamsi()</td>
+                                        <td class="center">
+                                            <a asp-area="Admin" asp-controller="AdminRole" asp-action="Edit" asp-route-roleId="@item.RoleId" class="text text-success">
+                                                <i class="material-icons">create</i>
+                                            </a>
+                                            <a onclick="confirmDelete('@Url.Action("Delete","AdminRole",new{roleId= item.RoleId})')" class="text text-danger">
+                                                <i class="material-icons">delete_forever</i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

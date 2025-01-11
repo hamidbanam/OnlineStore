@@ -1,0 +1,94 @@
+﻿@using OnlineStore.Domain.ViewModel.Admin.Color
+@model List<ProductColorViewModel>
+@{
+    ViewData["Title"] = "رنگ محصول";
+}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="header">
+                <h2>@ViewData["Title"]</h2>
+            </div>
+            <div class="body">
+                <div class="dt-buttons m-3">
+                    <a onclick="Create(@ViewData["ProductId"])" class="btn btn-success btn-border-radius waves-effect">افزودن رنگ جدید</a>
+                </div>
+                <div class="table-responsive">
+                    <div id="tableExport_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                        <table id="tableExport" class="display table table-hover table-checkable order-column width-per-100 dataTable" role="grid" aria-describedby="tableExport_info">
+                            <thead>
+                                <tr role="row">
+                                    <th class="center">رنگ</th>
+                                    <th class="center">عنوان رنگ</th>
+                                    <th class="center">محصول </th>
+                                    <th class="center">قیمت</th>
+                                    <th class="center">تعداد</th>
+                                    <th class="center">اقدام</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model != null)
+                                {
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr role="row" class="odd" id="tr_@(item.ColorId)">
+                                            <td class="center">
+                                                <input disabled type="color" asp-for=" @item.Color" class="input_color" />
+                                            </td>
+                                            <td class="center">@item.ColorTitle</td>
+                                            <td class="center">@item.ProductTitle</td>
+                                            <td class="center">@item.Price.ToString("#,0 تومان")</td>
+                                            <td class="center">@item.Quantity</td>
+                                            <td class="center">
+                                                <a onclick="confirmDeleteProductColor(@item.ColorId)" class="text-danger">
+                                                    <i class="material-icons">delete_forever</i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <a asp-area="Admin" asp-controller="AdminProduct" asp-action="List" type="button" class="btn btn-primary waves-effect">
+                    <i class="material-icons">low_priority</i>
+                    <span>بازگشت به لیست محصولات</span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+<partial name="_Modal">
+    @section Scripts {
+        <script>
+            function Create(productId) {
+                $.get("/Admin/Create-ProductColor/"+productId, function (res) {
+                    $("#exampleModalCenter").modal('show');
+                    $("#bodyModal").html(res);
+                });
+            }
+
+
+                   function confirmDeleteProductColor(id) {
+                Swal.fire({
+                    text: "آیا از انجام این عملیات مطمئن هستید؟",
+                    icon: "question",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "بلـــــــــه",
+                    cancelButtonText: "خیــــــــر"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.get("/Admin/AdminProductColor/Delete/" + id, function () {
+                            $("#tr_" + id).hide('slow');
+                        });
+
+                    }
+
+                });
+            }
+        </script>
+    }

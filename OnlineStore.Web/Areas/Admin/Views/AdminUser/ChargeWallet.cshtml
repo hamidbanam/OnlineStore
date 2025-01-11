@@ -1,0 +1,15 @@
+﻿@using OnlineStore.Domain.ViewModel.Wallet
+@model ChargeWalletViewModel
+@{
+    ViewData["Title"] = "افزودن رنگ";
+}
+<form asp-area="Admin" asp-controller="AdminUser" asp-action="ChargeWallet" method="post">
+    <input type="hidden" asp-for="UserId" />
+       <div class="form-group">
+        <div class="form-line">
+            <input asp-for="Price" type="text" class="form-control" placeholder=" مبلغ" />
+        </div>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary m-t-15 waves-effect">شارژ کیف پول</button>
+</form>

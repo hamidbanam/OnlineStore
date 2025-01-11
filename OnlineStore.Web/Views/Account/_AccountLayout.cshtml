@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <partial name="_AccountMeta" />
+    <title>@ViewBag.Title | فروشگاه منطقه آزاد انزلی</title>
+    <partial name="_AccountStyle" />
+</head>
+
+<body>
+
+    <div class="page-wrapper">
+        <partial name="_AccountHeader" />
+        <main class="page-content page-auth">
+            <!-- start of auth-container -->
+            @RenderBody()
+            <!-- start of auth-container -->
+        </main>
+        <partial name="_AccountFooter" />
+    </div>
+    <partial name="_AccountScript" />
+    <partial name="_SiteNotification" />
+</body>
+
+</html>

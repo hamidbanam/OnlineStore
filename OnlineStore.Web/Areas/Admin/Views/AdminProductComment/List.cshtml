@@ -1,0 +1,120 @@
+﻿@using OnlineStore.Application.Extensions
+@using OnlineStore.Application.Generators
+@using OnlineStore.Domain.Enum.Product
+@using OnlineStore.Domain.ViewModel.Admin.Comment
+@model FilterProductCommentViewModel
+@{
+    ViewData["Title"] = "نظرات محصول";
+}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="header">
+                <h2>جستجو</h2>
+            </div>
+            <div class="body">
+                <form asp-area="Admin" asp-controller="AdminProductComment" asp-action="List" id="filter-search">
+                    <input type="hidden" asp-for="Page">
+                    <input type="hidden" asp-for="ProductId">
+                    <div class="row">
+                        <div class="col-md-3 ">
+                            <div class="form-group">
+                                <div class="select-wrapper">
+                                    <select asp-for="Status" asp-items="@Html.GetEnumSelectList<FilterProductCommentstatus>()"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-border-radius w-50">جستجو</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="card">
+            <div class="header">
+                <h2>@ViewData["Title"]</h2>
+            </div>
+            <div class="body">
+                <div class="table-responsive">
+                    <div id="tableExport_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                        <table id="tableExport" class="display table table-hover table-checkable order-column width-per-100 dataTable" role="grid" aria-describedby="tableExport_info">
+                            <thead>
+                                <tr role="row">
+                                    <th class="center">عنوان</th>
+                                    <th class="center">متن</th>
+                                    <th class="center">مزایا</th>
+                                    <th class="center">معایب</th>
+                                    <th class="center">وضعیت</th>
+                                    <th class="center">تاریخ ایجاد</th>
+                                    <th class="center">اقدام</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Entities)
+                                {
+                                    <tr role="row" class="odd">
+
+                                        <td class="center">@item.Title</td>
+                                        <td class="center">@item.Text</td>
+                                        <td class="center">@item.Advantages</td>
+                                        <td class="center">@item.Disadvantages</td>
+                                        <td class="center">
+                                            @if (item.Status == ProductCommentStatus.Pendding)
+                                            {
+                                                <span class="label l-bg-purple shadow-style">@item.Status.GetDisplayName()</span>
+                                            }
+                                            else if (item.Status == ProductCommentStatus.Conmfirmed)
+                                            {
+                                                <span class="label l-bg-cyan shadow-style">@item.Status.GetDisplayName()</span>
+                                            }
+                                            else if (item.Status == ProductCommentStatus.Rejected)
+                                            {
+                                                <span class="label l-bg-orange shadow-style">@item.Status.GetDisplayName()</span>
+                                            }
+                                        </td>
+                                        <td class="center">@item.CreateDate.ToShamsi()</td>
+                                        <td class="center">
+                                            @if (item.Status == ProductCommentStatus.Pendding)
+                                            {
+                                                <a asp-area="Admin" asp-controller="AdminProductComment" asp-action="ConfirmComment" asp-route-commentId="@item.CommentId" class="text-success">
+                                                    <i class="material-icons">check_circle</i>
+                                                </a>
+                                                <a asp-area="Admin" asp-controller="AdminProductComment" asp-action="RejectComment" asp-route-commentId="@item.CommentId" class="text-danger">
+                                                    <i class="material-icons">highlight_off</i>
+                                                </a>
+                                            }
+                                            else if (item.Status == ProductCommentStatus.Conmfirmed)
+                                            {
+                                                <a asp-area="Admin" asp-controller="AdminProductComment" asp-action="RejectComment" asp-route-commentId="@item.CommentId" class="text-danger">
+                                                    <i class="material-icons">highlight_off</i>
+                                                </a>
+                                            }
+                                            else if (item.Status == ProductCommentStatus.Rejected)
+                                            {
+                                                <a asp-area="Admin" asp-controller="AdminProductComment" asp-action="ConfirmComment" asp-route-commentId="@item.CommentId" class="text-success">
+                                                    <i class="material-icons">check_circle</i>
+                                                </a>
+                                            }
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <div class="dataTables_info" id="tableExport_info" role="status" aria-live="polite">نمایش @Model.StartPage تا @Model.Entities.Count() از @Model.AllEntitiesCount ورودی</div>
+                        <partial name="_AdminPaging" model="@Model.GetCurrentPaging()" />
+                    </div>
+                </div>
+                <a asp-area="Admin" asp-controller="AdminProduct" asp-action="List" type="button" class="btn btn-primary waves-effect">
+                    <i class="material-icons">low_priority</i>
+                    <span>بازگشت به لیست محصولات</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

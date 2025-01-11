@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <partial name="_Metatags" />
+    <title>محصولات منطقه آزاد انزلی | @ViewData["Title"]</title>
+    <partial name="_LinkStyle" />
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <!-- start of page-header -->
+        <header class="page-header d-md-block d-none">
+            <!-- start of page-header-top -->
+            <partial name="_HeaderTop" />
+            <!-- end of page-header-top -->
+            <!-- start of page-header-middle -->
+            <partial name="_Headermiddle" />
+            <!-- end of page-header-middle -->
+            <!-- start of page-header-bottom -->
+            <partial name="_Headerbottom" />
+            <!-- end of page-header-bottom -->
+        </header>
+        <!-- end of page-header -->
+        <partial name="_Headerresponsive" />
+
+        <main class="page-content">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-xl-3 col-lg-4 col-md-5 mb-md-0 mb-4">
+                        @await Component.InvokeAsync("SideBarUserPanel")
+                    </div>
+                    <div class="col-xl-9 col-lg-8 col-md-7">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="page-footer">
+            <div class="container">
+                <partial name="_FooterTop" />
+                <partial name="_FooterMiddle" />
+                <partial name="_FooterBottom" />
+            </div>
+        </footer>
+    </div>
+    <partial name="_Scripts" />
+    <partial name="_SiteNotification" />
+    @RenderSection("Scripts", false)
+</body>
+
+</html>

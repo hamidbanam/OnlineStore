@@ -1,0 +1,40 @@
+﻿@using OnlineStore.Domain.ViewModel.Admin.Color
+@model CreateProductColorViewModel
+@{
+    ViewData["Title"] = "افزودن رنگ";
+}
+<form asp-area="Admin" asp-controller="AdminProductColor" asp-action="Create" method="post">
+    <input type="hidden" asp-for="ProductId" />
+    <div class="row clearfix">
+        <div class="col-md-12">
+            <b>کد رنگ</b>
+            <div class="input-group colorpicker colorpicker-element">
+                <div class="form-line">
+                    <input asp-for="Color" type="text" class="form-control" value="#00AABB">
+                </div>
+                <span class="input-group-addon">
+                    <i style="background-color:#00AABB;"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-line">
+            <input asp-for="ColorTitle" type="text" class="form-control" placeholder=" عنوان رنک" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-line">
+            <input value="" asp-for="Price" type="number" class="form-control" placeholder=" قیمت" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-line">
+            <input value="" asp-for="Quantity" type="number" class="form-control" placeholder=" تعداد" />
+        </div>
+    </div>
+
+    <br>
+    <button type="submit" class="btn btn-primary m-t-15 waves-effect">افزودن</button>
+</form>
+<script src="/admin-assets/js/pages/forms/advanced-form-elements.js"></script>

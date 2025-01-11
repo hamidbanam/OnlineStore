@@ -1,0 +1,103 @@
+﻿@using OnlineStore.Application.Generators
+@using OnlineStore.Domain.ViewModel.Admin.Feature
+@model FilterFeatureViewModel
+@{
+    ViewData["Title"] = "لیست ویژگی ها";
+}
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="dt-buttons m-3">
+                <a onclick="Create()" class="btn btn-success btn-border-radius waves-effect">افزودن ویژگی جدید</a>
+            </div>
+            <div class="header">
+                <h2>جستجو</h2>
+            </div>
+            <div class="body">
+                <form asp-action="List" id="filter-search">
+                    <input type="hidden" asp-for="Page">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input asp-for="Title" type="text" class="form-control" placeholder="عنوان">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-4 align-center">
+                            <button type="submit" class="btn btn-primary btn-border-radius">جستجو</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="card">
+            <div class="header">
+                <h2>@ViewData["Title"]</h2>
+            </div>
+            <div class="body">
+                <div class="table-responsive">
+                    <div id="tableExport_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                        <table id="tableExport" class="display table table-hover table-checkable order-column width-per-100 dataTable" role="grid" aria-describedby="tableExport_info">
+                            <thead>
+                                <tr role="row">
+                                    <th class="center">عنوان</th>
+                                    <th class="center">تاریخ</th>
+                                    <th class="center">اقدام</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Entities)
+                                {
+                                    <tr role="row" class="odd">
+
+                                        <td class="center">@item.FeatureTitle</td>
+                                        <td class="center">
+                                            @item.CreateDate.ToShamsi()
+                                        </td>
+                                        <td class="center">
+                                            <a onclick="Edit(@item.FeatureId)" class="text-warning">
+                                                <i class="material-icons">create</i>
+                                            </a>
+                                            <a onclick="confirmDelete('@Url.Action("Delete", "AdminFeature", new { id = item.FeatureId })',event)" class="text-danger">
+                                                <i class="material-icons">delete_forever</i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <div class="dataTables_info" id="tableExport_info" role="status" aria-live="polite">نمایش @Model.StartPage تا @Model.Entities.Count() از @Model.AllEntitiesCount ورودی</div>
+                        <partial name="_AdminPaging" model="@Model.GetCurrentPaging()" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<partial name="_Modal">
+    @section Scripts {
+        <script>
+            function Create() {
+                $.get("/Admin/Create-Feature/", function (res) {
+                    $("#exampleModalCenter").modal('show');
+                    $("#bodyModal").html(res);
+                });
+            }
+
+            function Edit(featureId) {
+                $.get("/Admin/Edit-Feature/" + featureId, function (res) {
+                    $("#exampleModalCenter").modal('show');
+                    $("#bodyModal").html(res);
+                    $("#exampleModalCenterTitle").html("ویرایش");
+                });
+            }
+
+
+        </script>
+    }

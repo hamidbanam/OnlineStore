@@ -1,0 +1,88 @@
+﻿@using OnlineStore.Application.Extensions
+@using OnlineStore.Application.Services.Interface
+@inject IUserService userService
+@{
+    int curentUser = User.GetUserById();
+}
+<div class="ui-sticky ui-sticky-top">
+    <div class="profile-user-info py-3 ui-box bg-white">
+        <ul class="nav nav-items-with-icon flex-column">
+            <li>
+                <div class="widget widget-collapse">
+                    <div class="widget-title widget-title--collapse-btn collapsed" data-bs-toggle="collapse" data-bs-target="#collapsePriceFilter" aria-expanded="false" aria-controls="collapsePriceFilter" role="button">اطلاعات حساب</div>
+                    <div class="widget-content widget--search fa-num collapse" id="collapsePriceFilter" style="">
+                        <a class="nav-link" asp-area="UserPanel" asp-controller="User" asp-action="EditProfile">
+                            <i class="nav-link-icon ri-user-line"></i>
+                            ویرایش حساب کاربری
+                        </a>
+                        <a class="nav-link" asp-area="UserPanel" asp-controller="User" asp-action="ChangeUsername">
+                            <i class="nav-link-icon ri-user-2-line"></i>
+                            تغییر نام کاربری
+                        </a> 
+                        <a class="nav-link" asp-area="UserPanel" asp-controller="User" asp-action="ChangeMobile">
+                            <i class="nav-link-icon ri-phone-fill"></i>
+                            تغییر موبایل
+                        </a> 
+                        <a class="nav-link" asp-area="UserPanel" asp-controller="User" asp-action="ChangePassword">
+                            <i class="nav-link-icon ri-lock-password-fill"></i>
+                            تغییر رمزعبور
+                        </a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link"asp-area="UserPanel" asp-controller="Address" asp-action="List" >
+                    <i class="nav-link-icon ri-map-pin-fill"></i> نشانی
+                    ها
+                </a>
+            </li>  
+            <li class="nav-item">
+                <a class="nav-link"asp-area="UserPanel" asp-controller="Wallet" asp-action="List" >
+                    <i class="nav-link-icon ri-wallet-2-fill"></i> کیف پول
+                   
+                </a>
+            </li> 
+            <li class="nav-item">
+                <a class="nav-link" asp-area="UserPanel" asp-controller="Home" asp-action="InterestList">
+                    <i class="nav-link-icon ri-heart-2-fill"></i> علاقمندی ها
+                   
+                </a>
+            </li>   
+            <li class="nav-item">
+                <a class="nav-link" asp-area="UserPanel" asp-controller="Home" asp-action="Index">
+                    <i class="nav-link-icon ri-logout-box-r-fill"></i> سفارش های من
+                   
+                </a>
+            </li>   
+            <li class="nav-item">
+                <a class="nav-link" asp-area="UserPanel" asp-controller="Home" asp-action="CommentList">
+                    <i class="nav-link-icon ri-chat-1-fill"></i>
+                    نظرات
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-area="UserPanel" asp-controller="Tiket" asp-action="List">
+                    <i class="nav-link-icon ri-notification-fill"></i>
+                    تیکت ها
+                </a>
+            </li>
+            @if(await userService.CheckPermissionAsync("Admin",curentUser))
+            {
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="Admin" asp-controller="Home" asp-action="Index">
+                        <i class="nav-link-icon ri-admin-fill"></i>
+                        پنل مدیریت سایت
+                    </a>
+                </li>
+            }
+       
+            <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Logout">
+                    <i class="nav-link-icon ri-logout-box-r-line"></i>
+                    خروج
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

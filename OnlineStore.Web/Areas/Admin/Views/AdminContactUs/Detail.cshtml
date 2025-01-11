@@ -1,0 +1,88 @@
+﻿@using OnlineStore.Application.Extensions
+@using OnlineStore.Domain.ViewModel.ContactUs
+@model DetailContactUsViewModel
+
+@{
+    ViewData["Title"] = "جزئیات تماس با ما";
+}
+
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="card">
+            <div class="header">
+                <h2>@ViewData["Title"]</h2>
+            </div>
+            <div class="body">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Title" class="control-label"></label>
+                            <input asp-for="Title" class="form-control" disabled="" />
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="form-group">
+                            <label asp-for="FullName" class="control-label"></label>
+                            <input asp-for="FullName" class="form-control" disabled="" />
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Email" class="control-label"></label>
+                            <input asp-for="Email" class="form-control" disabled="" />
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Mobile" class="control-label"></label>
+                            <input asp-for="Mobile" class="form-control" disabled="" />
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Ip" class="control-label"></label>
+                            <input asp-for="Ip" class="form-control" disabled="" />
+                        </div>
+                    </div>
+                    @if (Model.AnswerUser != null)
+                    {
+                        <div class="col-12 col-md-6">
+                            <div class="form-group">
+                                <label asp-for="AnswerUser" class="control-label"></label>
+                                <input class="form-control" value="@Model.AnswerUser?.GetFullName()" disabled="" />
+                            </div>
+                        </div>
+                    }
+                    <div class="col-12 col-md-12">
+                        <div class="form-group">
+                            <label asp-for="Description" class="control-label"></label>
+                            <textarea class="form-control" asp-for="Description" disabled=""></textarea>
+                        </div>
+                    </div>
+                    @if (!string.IsNullOrEmpty(Model.Answer))
+                    {
+                        <div class="col-12 col-md-12">
+                            <div class="form-group">
+                                <label asp-for="Answer" class="control-label"></label>
+                                <textarea class="form-control" asp-for="Answer" disabled=""></textarea>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="col-12 col-md-12">
+                            <partial name="_AnswerContactUs" model="@(new AnswerContactUsViewModel())" />
+                        </div>
+                    }
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+    <script src="/admin-assets/js/admin-contactus.js"></script>
+}

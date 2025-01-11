@@ -1,0 +1,48 @@
+﻿@using OnlineStore.Application.Static
+@using OnlineStore.Domain.ViewModel.Client.Product
+@model List<LastesProductViewModel>
+
+<div class="row mx-0">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-4 col-sm-6 mb-4">
+            <!-- start of product-card -->
+            <div class="product-card product-card-horizontal">
+                <div class="product-thumbnail">
+                    <a asp-area="" asp-controller="Home" asp-action="ProductDetail" asp-route-slug="@item.Slug">
+                        <img src="@PathTools.ProductImage/@item.ProductImage" alt="@item.ProductTitle">
+                    </a>
+                </div>
+                <div class="product-card-body">
+                    <h2 class="product-title">
+                        <a asp-area="" asp-controller="Home" asp-action="ProductDetail" asp-route-slug="@item.Slug">
+                            @item.ProductTitle
+                        </a>
+                    </h2>
+                    <div class="product-variant">
+                        @foreach (var color in item.Colors)
+                        {
+                            @if(color.Quantity>0)
+                            {
+                                <span class="color" style="background-color: @color.Color;"></span>
+                            }
+                         
+                        }
+                        <span>+</span>
+                    </div>
+                    <div class="product-price fa-num">
+                        <span class="price-now">@item.Price.ToString("#,0") <span class="currency">تومان</span></span>
+                    </div>
+                </div>
+                <div class="product-card-footer">
+                    <div class="d-flex align-items-center justify-content-between mt-2 py-2">
+                        <div class="product-actions">
+                            <partial name="_ProductCardFooter" model="item" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end of product-card -->
+        </div>
+    }
+</div>

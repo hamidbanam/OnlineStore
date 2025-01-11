@@ -1,0 +1,24 @@
+﻿@using OnlineStore.Application.Services.Interface
+@using OnlineStore.Domain.Enum.Product
+@using OnlineStore.Domain.ViewModel.Client.Comment
+@model ClientCommentViewModel
+@inject IProductCommentService commentService;
+@{
+    var like = ProductCommentReactionType.Like;
+    var dislike = ProductCommentReactionType.DisLike;
+}
+<div class="comment-footer">
+    <span class="me-2">آیا این دیدگاه برایتان مفید بود؟</span>
+        <a style="text-decoration:none; margin-left:5px " asp-area="" asp-controller="Home" asp-action="ReactionComment"
+       asp-route-ProductId="@Model.ProductId" asp-route-CommentId="@Model.commentId"
+       asp-route-Type="@like" class="comment-like fa-num">
+        @await commentService.GetAllLikeReactionAsync(Model.ProductId, Model.commentId)
+    </a>
+ 
+
+    <a style="text-decoration:none" asp-area="" asp-controller="Home" asp-action="ReactionComment"
+       asp-route-ProductId="@Model.ProductId" asp-route-CommentId="@Model.commentId"
+       asp-route-Type="@dislike" class="comment-dislike fa-num">
+        @await commentService.GetAllDislikeReactionAsync(Model.ProductId, Model.commentId)
+    </a>
+</div>

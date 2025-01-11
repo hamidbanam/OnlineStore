@@ -1,0 +1,116 @@
+﻿@if (TempData["SuccessMessage"] != null)
+{
+    <script>
+         let timerInterval;
+        Swal.fire({
+            position:"top-end",
+            title: "عملیات موفق",
+            html: "@TempData["SuccessMessage"]",
+             icon: "success",
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: () => {
+                Swal.showLoading();
+                const timer = Swal.getPopup().querySelector("b");
+                timerInterval = setInterval(() => {
+                    timer.textContent = `${Swal.getTimerLeft()}`;
+                }, 100);
+            },
+            willClose: () => {
+                clearInterval(timerInterval);
+            }
+        }).then((result) => {
+            /* Read more about handling dismissals below */
+            if (result.dismiss === Swal.DismissReason.timer) {
+                console.log("I was closed by the timer");
+            }
+        });
+    </script>
+}
+@if (TempData["ErrorMessage"] != null)
+{
+         <script>
+         let timerInterval;
+        Swal.fire({
+            position: "top-end",
+            title: "خطا",
+            html: "@TempData["ErrorMessage"]",
+             icon: "error",
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: () => {
+                Swal.showLoading();
+                const timer = Swal.getPopup().querySelector("b");
+                timerInterval = setInterval(() => {
+                    timer.textContent = `${Swal.getTimerLeft()}`;
+                }, 100);
+            },
+            willClose: () => {
+                clearInterval(timerInterval);
+            }
+        }).then((result) => {
+            /* Read more about handling dismissals below */
+            if (result.dismiss === Swal.DismissReason.timer) {
+                console.log("I was closed by the timer");
+            }
+        });
+    </script>
+}
+@if (TempData["WarningMessage"] != null)
+{
+        <script>
+         let timerInterval;
+        Swal.fire({
+            position: "top-end",
+            title: "هشدار",
+            html:  "@TempData["WarningMessage"]",
+             icon: "warning",
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: () => {
+                Swal.showLoading();
+                const timer = Swal.getPopup().querySelector("b");
+                timerInterval = setInterval(() => {
+                    timer.textContent = `${Swal.getTimerLeft()}`;
+                }, 100);
+            },
+            willClose: () => {
+                clearInterval(timerInterval);
+            }
+        }).then((result) => {
+            /* Read more about handling dismissals below */
+            if (result.dismiss === Swal.DismissReason.timer) {
+                console.log("I was closed by the timer");
+            }
+        });
+    </script>
+}
+@if (TempData["InfoMessage"] != null)
+{
+        <script>
+         let timerInterval;
+        Swal.fire({
+            position: "top-end",
+            title: "توجه",
+            html:  "@TempData["InfoMessage"]",
+             icon: "info",
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: () => {
+                Swal.showLoading();
+                const timer = Swal.getPopup().querySelector("b");
+                timerInterval = setInterval(() => {
+                    timer.textContent = `${Swal.getTimerLeft()}`;
+                }, 100);
+            },
+            willClose: () => {
+                clearInterval(timerInterval);
+            }
+        }).then((result) => {
+            /* Read more about handling dismissals below */
+            if (result.dismiss === Swal.DismissReason.timer) {
+                console.log("I was closed by the timer");
+            }
+        });
+    </script>
+}

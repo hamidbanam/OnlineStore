@@ -1,0 +1,16 @@
+.profile_img {
+    width: 250px;
+    height: 250px;
+    border-radius: 20%;
+}
+.List_img{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+}
+.input_color{
+    width:25px;
+    height:25px;
+  border-radius:50%;
+    
+}

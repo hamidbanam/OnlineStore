@@ -1,0 +1,59 @@
+﻿@using OnlineStore.Application.Extensions
+@using OnlineStore.Application.Static
+@using OnlineStore.Domain.ViewModel.Client.Interests
+@model List<InterestsViewModel>
+@{
+    ViewData["Title"] = "علاقمندی ها";
+}
+<div class="ui-box bg-white mb-5">
+    <div class="ui-box-title">کالاهای مورد علاقه</div>
+    <div class="ui-box-content">
+        <div class="product-list">
+            <div class="row">
+
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-6 mb-3">
+                        <!-- start of product-list-item -->
+                        <div class="product-list-item border-bottom pb-3">
+                            <div class="thumbnail">
+                                <a asp-area="" asp-controller="Home" asp-action="ProductDetail" asp-route-slug="@item.Product.Slug">
+                                    <img src="@PathTools.ProductImage/@item.Product.Image" alt="@item.Product.ProductTitle">
+                                </a>
+                            </div>
+                            <div class="detail">
+                                <a asp-area="" asp-controller="Home" asp-action="ProductDetail" asp-route-slug="@item.Product.Slug" class="title fs-7 fw-bold mb-2">
+                                    @item.Product.ProductTitle
+                                </a>
+                                <div class="price fa-num">
+                                    <span class="fw-bold fa-num">@item.Product.Price.ToMoney()</span>
+                                    <span class="currency">تومان</span>
+                                </div>
+                                <div class="action">
+                                    <button class="btn btn-circle btn-outline-light" onclick="deleteInterestProduct(@item.Id)">
+                                        <i class="ri-close-line"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end of product-list-item -->
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script>
+                function deleteInterestProduct(interestId) {
+        fetch(`/UserPanel/Home/DeleteInterestProduct/${interestId}`)
+            .then(res => res.json())
+            .then(data => {
+
+                location.reload();
+
+            })
+                }
+    </script>
+
+}

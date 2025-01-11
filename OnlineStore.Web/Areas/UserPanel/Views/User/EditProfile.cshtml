@@ -1,0 +1,28 @@
+﻿@using OnlineStore.Domain.ViewModel.UserPanel
+@model EditUserProfileViewModel
+@{
+    ViewData["Title"] = "ویرایش حساب کاربری ";
+}
+<div class="ui-box bg-white mb-5">
+    <div class="ui-box-title">@ViewData["Title"]</div>
+    <form asp-area="UserPanel" asp-controller="User" asp-action="EditProfile" method="post">
+    <input type="hidden" asp-for="UserId" />
+        <div class="ui-box-content">
+            <div class="row">
+                <div class="col-lg-6 mb-3">
+                    <input asp-for="FirstName" type="text" class="form-control" placeholder="نام" />
+                </div>
+                <div class="col-lg-6 mb-3">
+                    <input asp-for="LastName" type="text" class="form-control" placeholder="نام خانوادگی" />
+                </div>
+                <div class="col-lg-6 mb-3">
+                    <input asp-for="Email" type="text" class="form-control" placeholder="ایمیل" />
+                </div>
+                <div class="col-12 text-end">
+                    <button type="submit" class="btn btn-primary px-4">ثبت و ارسال</button>
+                </div>
+                <div asp-validation-summary="All"></div>
+            </div>
+        </div>
+</form>
+</div>

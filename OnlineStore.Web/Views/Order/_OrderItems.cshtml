@@ -1,0 +1,90 @@
+﻿@using OnlineStore.Application.Extensions
+@using OnlineStore.Application.Static
+@using OnlineStore.Domain.Model.Order
+@using OnlineStore.Domain.Model.Product.Color
+@using OnlineStore.Domain.Model.Product.Product
+@model OrderDetail
+@{
+    Product? product = Model.Product;
+    ProductColor? productColor = Model.ProductColor;
+}
+
+                <!-- start of cart-item -->
+                <div class="cart-item">
+                    <div class="cart-item--thumbnail">
+                        <a asp-area="" asp-controller="Home" asp-action="ProductDetail" asp-route-slug="@product.Slug">
+                            <img src="@PathTools.ProductImage/@product.Image" alt="@product.ProductTitle">
+                        </a>
+                    </div>
+                    <div class="cart-item--detail">
+                        <h2 class="cart-item--title mb-2">
+                            <a asp-area="" asp-controller="Home" asp-action="ProductDetail" asp-route-slug="@product.Slug">
+                                @product.ProductTitle
+                            </a>
+                        </h2>
+                        @if (productColor != null)
+                        {
+                            <div class="cart-item--variant mb-2">
+                                <span class="color" style="background-color: @productColor.Color;"></span>
+                                <span class="ms-1">@productColor.ColorTitle</span>
+                            </div>
+                        }
+                        <div class="cart-item--data mb-4">
+                            <ul>
+                                <li>
+                                    <i class="ri-shield-check-fill text-secondary"></i><span>
+                                        گارانتی
+                                        اصالت و
+                                        سلامت فیزیکی
+                                        کالا
+                                    </span>
+                                </li>
+
+
+                                @if (product.Quantity > 0)
+                                {
+                                    <li>
+                                        <i class="ri-checkbox-multiple-fill text-primary"></i>
+
+                                        <span>
+                                            موجود
+                                            در
+                                            انبار
+                                        </span>
+                                    </li>
+
+                                }
+
+                            </ul>
+                        </div>
+                        <div class="cart-item--price--actions">
+                            <div class="cart-item--actions">
+                                <div class="num-block fa-num me-3">
+                                    <div class="num-in">
+                                        <span class="plus" onclick="increaseProductQuantity(@Model.DetailId)"></span>
+                                        <input type="text" class="in-num" value="@Model.Quantity" readonly="">
+                                        <span  class="minus"  onclick="decreaseProductQuantity(@Model.DetailId)"></span>
+                                    </div>
+                                </div>
+                                <button class="btn btn-link btn-sm text-secondary" onclick="deleteOrderDetails(@Model.DetailId)"><i class="ri-delete-bin-5-line me-1"></i><span>حذف</span></button>
+
+                            </div>
+                            <div class="cart-item--price fa-num">
+
+                                <div class="cart-item--price-now">
+                                    @{
+                                        int price = product?.Price ?? 0;
+                                        if (productColor != null)
+                                        {
+                                            price = productColor.Price;
+                                        }
+                                    }
+                                    <span>@price.ToMoney()</span>
+                                    <span class="currency">تومان</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of cart-item -->
+    

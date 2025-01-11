@@ -1,0 +1,176 @@
+﻿@using OnlineStore.Application.Static
+@using OnlineStore.Domain.ViewModel.Admin.Product
+@model CreateProductViewModel
+@{
+    ViewData["Title"] = "افزودن محصول";
+}
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="body">
+                <form asp-area="Admin" asp-controller="AdminProduct" asp-action="Create" method="post" enctype="multipart/form-data">
+                    <h2 class="card-inside-title">@ViewData["Title"]</h2>
+                    <div class="row clearfix">
+                        <div class="col-md-10">
+                            <div class="input-field col s12">
+                                <div class="select-wrapper">
+                                    <label>دسته بندی</label>
+                                    <select asp-for="CategoryId" tabindex="-1">
+                                        <option disabled selected>دسته بندی محصول را انتخاب کنید</option>
+                                        @if (Model.Categories != null)
+                                        {
+                                            @foreach (var item in Model.Categories.Where(c => c.ParentId == null))
+                                            {
+
+                                                <optgroup label="@item.CategoryTitle">
+                                                    @if (Model.Categories.Any(c => c.ParentId == item.CategoryId))
+                                                    {
+                                                        @foreach (var sub in Model.Categories.Where(c => c.ParentId == item.CategoryId))
+                                                        {
+                                                            <option value="@sub.CategoryId">@sub.CategoryTitle</option>
+                                                        }
+                                                    }
+
+                                                </optgroup>
+
+                                            }
+                                        }
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="input-group">
+                                <label>عنوان محصول</label>
+                                <div class="form-line">
+                                    <input asp-for="ProductTitle" type="text" class="form-control date" placeholder="عنوان محصول">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="input-group">
+                                <label>قیمت</label>
+                                <div class="form-line">
+                                    <input value="" asp-for="Price" type="text" class="form-control date" placeholder="قیمت">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="input-group">
+                                <label>تعداد</label>
+                                <div class="form-line">
+                                    <input value="" asp-for="Quantity" type="text" class="form-control date" placeholder="تعداد">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <label>عنوان محصول به لاتین</label>
+                                <div class="form-line">
+                                    <input asp-for="TitleForEnglish" type="text" class="form-control date" placeholder="عنوان محصول به لاتین">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <label>عنوان در مرورگر</label>
+                                <div class="form-line">
+                                    <input asp-for="Slug" type="text" class="form-control date" placeholder="عنوان در مرورگر">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <h2 class="card-inside-title">نقد و بررسی</h2>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <textarea asp-for="Review" rows="4" class="form-control no-resize" placeholder="نقد و بررسی"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <h2 class="card-inside-title">توضیحات</h2>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <textarea asp-for="Description" rows="4" class="form-control no-resize" placeholder="توضیحات"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <h2 class="card-inside-title">متن گارانتی</h2>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <textarea asp-for="WarrantyText" rows="4" class="form-control no-resize" placeholder="متن گارانتی"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <h2 class="card-inside-title">متن هشدار</h2>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <textarea asp-for="WarningDescription" rows="4" class="form-control no-resize" placeholder="متن هشدار"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <div class="file-field input-field">
+                                    <div class="btn">
+                                        <span>تصویر</span>
+                                        <input asp-for="Image" id="imgInp" type="file">
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <div id="image-preview"></div>
+                                <img src="@PathTools.DefaultImage" class="profile_img" id="blah" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <p>
+                                <label>
+                                    <input asp-for="IsFreeShipping" type="checkbox" class="filled-in">
+                                    <span> ارسال رایگان</span>
+                                </label>
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <p>
+                                <label>
+                                    <input asp-for="IsActive" type="checkbox" class="filled-in">
+                                    <span> فعال/غیرفعال</span>
+                                </label>
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <Input type="submit" class="btn bg-green waves-effect" value="افزودن اطلاعات">
+                        </div>
+                        <div asp-validation-summary="All"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+        imgInp.onchange = evt => {
+            const [file] = imgInp.files
+            if (file) {
+                blah.src = URL.createObjectURL(file)
+            }
+        }
+
+    </script>
+}

@@ -1,0 +1,121 @@
+﻿@using OnlineStore.Application.Extensions
+@using OnlineStore.Application.Services.Interface
+@inject IUserService userService
+@{
+    int curentUser = User.GetUserById();
+}
+@if (await userService.CheckPermissionAsync("Admin", curentUser))
+{
+    <li class="@((ViewData["Title"] == "خانه") ? "active" : "")">
+        <a href="#" onClick="return false;" class="menu-toggle">
+            <i class="menu-icon ti-home"></i>
+            <span>خانه</span>
+        </a>
+        <ul class="ml-menu">
+            <li class="@((ViewData["Title"] == "خانه") ? "active" : "")">
+                <a asp-area="Admin" asp-controller="Home" asp-action="Index">داشبورد</a>
+            </li>
+        </ul>
+    </li>
+}
+
+
+@if (await userService.CheckPermissionAsync("AdminUser", curentUser))
+{
+    <li class="@((ViewData["Title"] == "نقش ها" || ViewData["Title"] == "افزودن نقش جدید" || ViewData["Title"] == "ویرایش نقش") ? "active" : "")">
+        <a href="#" onClick="return false;" class="menu-toggle">
+            <i class="fas fa-users"></i>
+            <span>نقش ها</span>
+        </a>
+        <ul class="ml-menu">
+            <li class="@((ViewData["Title"] == "نقش ها") ? "active" : "")">
+                <a asp-area="Admin" asp-controller="AdminRole" asp-action="List">لیست نقش ها</a>
+            </li>
+            <li class="@((ViewData["Title"] == "اافزودن نقش جدید") ? "active" : "")">
+                <a asp-area="Admin" asp-controller="AdminRole" asp-action="Create">افزودن نقش جدید</a>
+            </li>
+        </ul>
+    </li>
+
+    <li class="@((ViewData["Title"] == "کاربران"||ViewData["Title"] == "افزودن کاربر جدید"||ViewData["Title"] == "ویرایش کاربر"||ViewData["Title"] == "نشانی ها") ? "active" : "")">
+        <a href="#" onClick="return false;" class="menu-toggle">
+            <i class="menu-icon ti-user"></i>
+            <span>کاربران</span>
+        </a>
+        <ul class="ml-menu">
+            <li class="@((ViewData["Title"] == "کاربران"||ViewData["Title"] == "نشانی ها") ? "active" : "")">
+                <a asp-area="Admin" asp-controller="AdminUser" asp-action="List">لیست کاربران</a>
+            </li>
+            <li class="@((ViewData["Title"] == "افزودن کاربر جدید") ? "active" : "")">
+                <a asp-area="Admin" asp-controller="AdminUser" asp-action="Create"> افزودن کاربر جدید</a>
+            </li>
+        </ul>
+    </li>
+}
+
+@if (await userService.CheckPermissionAsync("AdminProduct", curentUser))
+{
+    <li class="@((ViewData["Title"] == "لیست ویژگی ها")?"active":"")">
+        <a asp-area="Admin" asp-controller="AdminFeature" asp-action="List">
+            <i class="menu-icon ti-menu-alt"></i>
+            <span>لیست ویژگی ها</span>
+        </a>
+    </li>
+
+    <li class="@((ViewData["Title"] == "لیست دسته بندی ها")?"active":"")">
+        <a asp-area="Admin" asp-controller="AdminCategory" asp-action="List">
+            <i class="menu-icon ti-layers"></i>
+            <span>لیست دسته بندی ها</span>
+        </a>
+    </li>
+
+    <li class="@((ViewData["Title"] == "لیست محصولات"||ViewData["Title"] == "افزودن محصول"||ViewData["Title"] == "ویرایش محصول"
+    ||ViewData["Title"] == "تصاویر"||ViewData["Title"] == "ویژگی محصول"||ViewData["Title"] == "رنگ محصول"||ViewData["Title"] == "نظرات محصول")?"active":"")">
+        <a href="#" onClick="return false;" class="menu-toggle ">
+            <i class="fab fa-product-hunt"></i>
+            <span>محصولات</span>
+        </a>
+        <ul class="ml-menu">
+            <li class="@((ViewData["Title"] == "لیست محصولات") ? "active" : "")">
+                <a asp-area="Admin" asp-controller="AdminProduct" asp-action="List">لیست محصولات</a>
+            </li>
+            <li class="@((ViewData["Title"] == "افزودن محصول جدید") ? "active" : "")">
+                <a asp-area="Admin" asp-controller="AdminProduct" asp-action="Create"> افزودن محصول جدید</a>
+            </li>
+        </ul>
+    </li>
+}
+
+@if (await userService.CheckPermissionAsync("AdminClient", curentUser))
+{
+
+
+    <li class="@((ViewData["Title"] == "اسلایدرها"||ViewData["Title"] == "افزودن اسلایدر"||ViewData["Title"] == "جزئیات تیکت") ? "active" : "")">
+        <a href="javascript:void(0)" onClick="return false;" class="menu-toggle">
+            <i class="fas fa-sliders-h"></i>
+            <span>اسلایدرها</span>
+        </a>
+        <ul class="ml-menu">
+            <li class="@((ViewData["Title"] == "اسلایدرها") ? "active" : "")">
+                <a asp-area="Admin" asp-controller="AdminSlider" asp-action="List">لیست اسلایدرها </a>
+            </li>
+            <li class="@((ViewData["Title"] == "افزودن اسلایدر") ? "active" : "")">
+                <a asp-area="Admin" asp-controller="AdminSlider" asp-action="Create">افزودن اسلایدر خانه </a>
+            </li>
+        </ul>
+    </li>
+
+    <li class="@((ViewData["Title"] == "لیست تماس باما"||ViewData["Title"] == "جزئیات تماس با ما")?"active":"")">
+        <a asp-area="Admin" asp-controller="AdminContactUs" asp-action="List">
+            <i class="menu-icon contact-usertitle"></i>
+            <span>لیست تماس با ما</span>
+        </a>
+    </li>  
+    <li class="@((ViewData["Title"] == "لیست تیکت ها")?"active":"")">
+        <a asp-area="Admin" asp-controller="AdminTicket" asp-action="List">
+            <i class="menu-icon ti-comments"></i>
+            <span>لیست تیکت ها</span>
+        </a>
+    </li>
+}
+

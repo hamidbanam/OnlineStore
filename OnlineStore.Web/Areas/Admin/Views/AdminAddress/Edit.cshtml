@@ -1,0 +1,28 @@
+﻿@using OnlineStore.Domain.ViewModel.UserPanel
+@model EditAddressViewModel
+@{
+    ViewData["Title"] = "افزودن نشانی";
+}
+<form asp-area="Admin" asp-controller="AdminAddress" asp-action="Edit" method="post">
+    <input type="hidden" asp-for="AddressId" />
+    <input type="hidden" asp-for="UserId" />
+    <div class="form-group">
+        <div class="form-line">
+            <input asp-for="State" type="text" class="form-control" placeholder=" استان" />
+        </div>
+    </div>  <div class="form-group">
+        <div class="form-line">
+            <input asp-for="City" type="text" class="form-control" placeholder=" شهر" />
+        </div>
+    </div>  <div class="form-group">
+        <div class="form-line">
+            <input asp-for="PostCod" type="text" class="form-control" placeholder=" کد پستی" />
+        </div>
+    </div>  <div class="form-group">
+        <div class="form-line">
+            <textarea asp-for="TotalAddress" rows="5" type="text" class="form-control" placeholder=" آدرس کامل" ></textarea>
+        </div>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary m-t-15 waves-effect">ویرایش</button>
+</form>

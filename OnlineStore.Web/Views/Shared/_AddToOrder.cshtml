@@ -1,0 +1,16 @@
+﻿@using OnlineStore.Domain.ViewModel.Client.Order
+@model AddToOrderViewModel
+
+
+<form asp-area="" asp-controller="Order" asp-action="AddToOrder" method="post">
+    <input type="hidden" asp-for="ProductId" />
+    <input type="hidden" asp-for="ColorId" class="order-color-id" />
+    <div class="product-seller--add-to-cart">
+        <button type="submit"  class="btn btn-primary w-100" data-toast="" 
+        data-toast-type="success" data-toast-color="green" 
+        data-toast-position="topRight" data-toast-icon="ri-check-fill" 
+        data-toast-title="موفق!" data-toast-message="به سبد اضافه شد!">
+            افزودن به سبد خرید
+        </button>
+    </div>
+</form>

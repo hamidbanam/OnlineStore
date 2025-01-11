@@ -1,0 +1,130 @@
+﻿@using OnlineStore.Application.Generators
+@using OnlineStore.Application.Services.Interface
+@using OnlineStore.Application.Static
+@using OnlineStore.Domain.ViewModel.Admin.Category
+@model FilterCategoryViewModel
+@inject ICategoryService categoryService
+@{
+    ViewData["Title"] = "لیست دسته بندی ها";
+    
+   }
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="dt-buttons m-3">
+                <a onclick="Create()" class="btn btn-success btn-border-radius waves-effect">افزودن دسته بندی جدید</a>
+            </div>
+            <div class="header">
+                <h2>جستجو</h2>
+            </div>
+            <div class="body">
+                <form asp-action="List" id="filter-search">
+                    <input type="hidden" asp-for="Page">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input asp-for="Title" type="text" class="form-control" placeholder="عنوان">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-4 align-center">
+                            <button type="submit" class="btn btn-primary btn-border-radius">جستجو</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="card">
+            <div class="header">
+                <h2>@ViewData["Title"]</h2>
+            </div>
+            <div class="body">
+                <div class="table-responsive">
+                    <div id="tableExport_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                        <table id="tableExport" class="display table table-hover table-checkable order-column width-per-100 dataTable" role="grid" aria-describedby="tableExport_info">
+                            <thead>
+                                <tr role="row">
+                                    <th class="center">تصویر</th>
+                                    <th class="center">عنوان دسته بندی</th>
+                                    <th class="center">عنوان دسته بندی اصلی</th>
+                                    <th class="center">تاریخ</th>
+                                    <th class="center">اقدام</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Entities)
+                                {
+                                    <tr role="row" class="odd">
+                                        <td class="center">
+                                        @if (item.ImageCategory == "NoPhoto.png")
+                                        {
+                                            <img src="@PathTools.DefaultImage" class="List_img" alt="@item.CategoryTitle">
+
+                                        }
+                                        else
+                                        {
+                                            <img src="@PathTools.CategoryImage/@item.ImageCategory" class="List_img" alt="@item.CategoryTitle">
+                                        }
+                                        </td>
+                                        <td class="center">@item.CategoryTitle</td>
+                                        <td class="center">
+                                            @if (item.ParentId == null)
+                                            {
+                                                <div class="badge col-orange ">دسته بندی اصلی</div>
+                                            }
+                                            else
+                                            {
+
+                                                <div class="badge col-blue-grey">@(await categoryService.GetCategoryById(item.ParentId??0))</div>
+                                            }
+                                        </td>
+                                        <td class="center">
+                                            @item.CreateDate.ToShamsi()
+                                        </td>
+                                        <td class="center">
+                                            <a onclick="Edit(@item.CategoryId)" class="text-warning">
+                                                <i class="material-icons">create</i>
+                                            </a>
+                                            <a onclick="confirmDelete('@Url.Action("Delete", "AdminCategory", new { id = item.CategoryId })',event)" class="text-danger">
+                                                <i class="material-icons">delete_forever</i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <div class="dataTables_info" id="tableExport_info" role="status" aria-live="polite">نمایش @Model.StartPage تا @Model.Entities.Count() از @Model.AllEntitiesCount ورودی</div>
+                        <partial name="_AdminPaging" model="@Model.GetCurrentPaging()" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<partial name="_Modal">
+    @section Scripts {
+        <script>
+            function Create() {
+                $.get("/Admin/Create-Category/", function (res) {
+                    $("#exampleModalCenter").modal('show');
+                    $("#bodyModal").html(res);
+                });
+            }
+
+            function Edit(featureId) {
+                $.get("/Admin/Edit-Category/" + featureId, function (res) {
+                    $("#exampleModalCenter").modal('show');
+                    $("#bodyModal").html(res);
+                    $("#exampleModalCenterTitle").html("ویرایش");
+                });
+            }
+
+
+        </script>
+    }

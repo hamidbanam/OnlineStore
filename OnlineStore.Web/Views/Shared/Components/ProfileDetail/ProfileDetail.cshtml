@@ -1,0 +1,23 @@
+﻿@using OnlineStore.Domain.Model.User.User
+@{
+    User? user = ViewData["User"] as User;
+}
+<div class="d-flex align-items-center">
+    <div class="profile-avatar me-3">
+        <img src="/theme-assets/images/avatar/default.png" alt="avatar">
+    </div>
+    <div class="profile-info">
+        <a asp-area="UserPanel" asp-controller="User" asp-action="EditProfile" class="text-decoration-none text-dark fw-bold mb-2">
+            @if(user.FirstName!=null && user.LastName!=null)
+            {
+                @user.FirstName @user.LastName
+            }
+            else
+            {
+                @user.UserName
+            }
+         
+        </a>
+        <div class="text-muted fs-7 fw-bold">@user.Mobile</div>
+    </div>
+</div>

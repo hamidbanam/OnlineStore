@@ -1,0 +1,286 @@
+2024-12-06 18:38:20.1559 Info Message Template Auto Format enabled
+2024-12-06 18:38:20.1812 Info Loading assembly: NLog.Web.AspNetCore
+2024-12-06 18:38:20.2600 Info Adding target FileTarget(Name=f)
+2024-12-06 18:38:20.2600 Info Adding target FileTarget(Name=All)
+2024-12-06 18:38:20.2600 Info Adding target FileTarget(Name=SqlQueryLog)
+2024-12-06 18:38:20.2919 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=86, FilePath=D:\Academy class\BootCamp_Asp_Advanced\15\Projects\Eshop\Eshop.Web\bin\Debug\net8.0\nlog.config
+2024-12-06 18:40:44.6451 Info Message Template Auto Format enabled
+2024-12-06 18:40:44.6694 Info Loading assembly: NLog.Web.AspNetCore
+2024-12-06 18:40:44.7085 Info Adding target FileTarget(Name=f)
+2024-12-06 18:40:44.7085 Info Adding target FileTarget(Name=All)
+2024-12-06 18:40:44.7240 Info Adding target FileTarget(Name=SqlQueryLog)
+2024-12-06 18:40:44.7473 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=86, FilePath=D:\Academy class\BootCamp_Asp_Advanced\15\Projects\Eshop\Eshop.Web\bin\Debug\net8.0\nlog.config
+2024-12-06 18:41:41.7128 Info Message Template Auto Format enabled
+2024-12-06 18:41:41.7280 Info Loading assembly: NLog.Web.AspNetCore
+2024-12-06 18:41:41.7775 Info Adding target FileTarget(Name=f)
+2024-12-06 18:41:41.7775 Info Adding target FileTarget(Name=All)
+2024-12-06 18:41:41.7775 Info Adding target FileTarget(Name=SqlQueryLog)
+2024-12-06 18:41:41.8123 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=86, FilePath=D:\Academy class\BootCamp_Asp_Advanced\15\Projects\Eshop\Eshop.Web\bin\Debug\net8.0\nlog.config
+2024-12-06 19:00:28.3185 Info Message Template Auto Format enabled
+2024-12-06 19:00:28.3374 Info Loading assembly: NLog.Web.AspNetCore
+2024-12-06 19:00:28.3805 Info Adding target FileTarget(Name=f)
+2024-12-06 19:00:28.3957 Info Adding target FileTarget(Name=All)
+2024-12-06 19:00:28.3957 Info Adding target FileTarget(Name=SqlQueryLog)
+2024-12-06 19:00:28.4266 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=86, FilePath=D:\Academy class\BootCamp_Asp_Advanced\15\Projects\Eshop\Eshop.Web\bin\Debug\net8.0\nlog.config
+2024-12-06 19:06:07.2337 Info Message Template Auto Format enabled
+2024-12-06 19:06:07.2466 Info Loading assembly: NLog.Web.AspNetCore
+2024-12-06 19:06:07.3059 Info Adding target FileTarget(Name=f)
+2024-12-06 19:06:07.3059 Info Adding target FileTarget(Name=All)
+2024-12-06 19:06:07.3059 Info Adding target FileTarget(Name=SqlQueryLog)
+2024-12-06 19:06:07.3431 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=86, FilePath=D:\Academy class\BootCamp_Asp_Advanced\15\Projects\Eshop\Eshop.Web\bin\Debug\net8.0\nlog.config
+2024-12-06 19:15:43.4164 Info Message Template Auto Format enabled
+2024-12-06 19:15:43.4410 Info Loading assembly: NLog.Web.AspNetCore
+2024-12-06 19:15:43.4932 Info Adding target FileTarget(Name=f)
+2024-12-06 19:15:43.5063 Info Adding target FileTarget(Name=All)
+2024-12-06 19:15:43.5063 Info Adding target FileTarget(Name=SqlQueryLog)
+2024-12-06 19:15:43.5403 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=86, FilePath=D:\Academy class\BootCamp_Asp_Advanced\15\Projects\Eshop\Eshop.Web\bin\Debug\net8.0\nlog.config
+2024-12-06 19:17:38.9175 Info Message Template Auto Format enabled
+2024-12-06 19:17:38.9414 Info Loading assembly: NLog.Web.AspNetCore
+2024-12-06 19:17:38.9896 Info Adding target FileTarget(Name=f)
+2024-12-06 19:17:38.9896 Info Adding target FileTarget(Name=All)
+2024-12-06 19:17:39.0053 Info Adding target FileTarget(Name=SqlQueryLog)
+2024-12-06 19:17:39.0309 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=86, FilePath=D:\Academy class\BootCamp_Asp_Advanced\15\Projects\Eshop\Eshop.Web\bin\Debug\net8.0\nlog.config
+2024-12-06 19:18:23.1618 Info Message Template Auto Format enabled
+2024-12-06 19:18:23.2117 Info Loading assembly: NLog.Web.AspNetCore
+2024-12-06 19:18:23.3535 Info Adding target FileTarget(Name=f)
+2024-12-06 19:18:23.3535 Info Adding target FileTarget(Name=All)
+2024-12-06 19:18:23.3682 Info Adding target FileTarget(Name=SqlQueryLog)
+2024-12-06 19:18:23.5382 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=86, FilePath=D:\Academy class\BootCamp_Asp_Advanced\15\Projects\Eshop\Eshop.Web\bin\Debug\net8.0\nlog.config
+2024-12-06 19:35:32.7562 Info Message Template Auto Format enabled
+2024-12-06 19:35:32.7736 Info Loading assembly: NLog.Web.AspNetCore
+2024-12-06 19:35:32.8197 Info Adding target FileTarget(Name=f)
+2024-12-06 19:35:32.8339 Info Adding target FileTarget(Name=All)
+2024-12-06 19:35:32.8339 Info Adding target FileTarget(Name=SqlQueryLog)
+2024-12-06 19:35:32.8645 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=86, FilePath=D:\Academy class\BootCamp_Asp_Advanced\15\Projects\Eshop\Eshop.Web\bin\Debug\net8.0\nlog.config
+2024-12-06 19:35:33.3550 Info Shutdown() called. Logger closing...
+2024-12-06 19:35:33.3550 Info Closing old configuration.
+2024-12-06 19:35:33.3754 Info Logger has been closed down.
+2024-12-06 19:35:33.3955 Info AppDomain Shutting down. Logger closing...
+2024-12-06 19:35:33.3971 Info Logger has been shut down.
+2024-12-08 18:23:26.1308 Info Message Template Auto Format enabled
+2024-12-08 18:23:26.1427 Info Loading assembly: NLog.Web.AspNetCore
+2024-12-08 18:23:26.1687 Info Adding target FileTarget(Name=f)
+2024-12-08 18:23:26.1687 Info Adding target FileTarget(Name=All)
+2024-12-08 18:23:26.1687 Info Adding target FileTarget(Name=SqlQueryLog)
+2024-12-08 18:23:26.1908 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=86, FilePath=E:\Asp.Net\Asp.netCampPro\16\Projects\Eshop\Eshop.Web\bin\Debug\net8.0\nlog.config
+2024-12-08 18:25:47.4108 Info AppDomain Shutting down. Logger closing...
+2024-12-08 18:25:47.4205 Info Logger has been shut down.
+2024-12-08 18:26:32.4096 Info Message Template Auto Format enabled
+2024-12-08 18:26:32.4096 Info Loading assembly: NLog.Web.AspNetCore
+2024-12-08 18:26:32.4357 Info Adding target FileTarget(Name=f)
+2024-12-08 18:26:32.4357 Info Adding target FileTarget(Name=All)
+2024-12-08 18:26:32.4357 Info Adding target FileTarget(Name=SqlQueryLog)
+2024-12-08 18:26:32.4593 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=86, FilePath=E:\Asp.Net\Asp.netCampPro\16\Projects\Eshop\Eshop.Web\bin\Debug\net8.0\nlog.config
+2024-12-08 18:26:32.5839 Info Shutdown() called. Logger closing...
+2024-12-08 18:26:32.5839 Info Closing old configuration.
+2024-12-08 18:26:32.5958 Info Logger has been closed down.
+2024-12-08 18:26:32.6339 Info AppDomain Shutting down. Logger closing...
+2024-12-08 18:26:32.6339 Info Logger has been shut down.
+2024-12-08 18:26:38.4064 Info Message Template Auto Format enabled
+2024-12-08 18:26:38.4064 Info Loading assembly: NLog.Web.AspNetCore
+2024-12-08 18:26:38.4351 Info Adding target FileTarget(Name=f)
+2024-12-08 18:26:38.4351 Info Adding target FileTarget(Name=All)
+2024-12-08 18:26:38.4351 Info Adding target FileTarget(Name=SqlQueryLog)
+2024-12-08 18:26:38.4589 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=86, FilePath=E:\Asp.Net\Asp.netCampPro\16\Projects\Eshop\Eshop.Web\bin\Debug\net8.0\nlog.config
+2024-12-08 18:26:38.5425 Info Shutdown() called. Logger closing...
+2024-12-08 18:26:38.5425 Info Closing old configuration.
+2024-12-08 18:26:38.5526 Info Logger has been closed down.
+2024-12-08 18:26:38.5861 Info AppDomain Shutting down. Logger closing...
+2024-12-08 18:26:38.5861 Info Logger has been shut down.
+2024-12-08 18:28:02.2607 Info Message Template Auto Format enabled
+2024-12-08 18:28:02.2688 Info Loading assembly: NLog.Web.AspNetCore
+2024-12-08 18:28:02.2860 Info Adding target FileTarget(Name=f)
+2024-12-08 18:28:02.2947 Info Adding target FileTarget(Name=All)
+2024-12-08 18:28:02.2947 Info Adding target FileTarget(Name=SqlQueryLog)
+2024-12-08 18:28:02.2947 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=86, FilePath=E:\Asp.Net\Asp.netCampPro\16\Projects\Eshop\Eshop.Web\bin\Debug\net8.0\nlog.config
+2024-12-08 18:28:02.6109 Info Shutdown() called. Logger closing...
+2024-12-08 18:28:02.6109 Info Closing old configuration.
+2024-12-08 18:28:02.6109 Info Logger has been closed down.
+2024-12-08 18:28:03.4755 Info AppDomain Shutting down. Logger closing...
+2024-12-08 18:28:03.4755 Info Logger has been shut down.
+2024-12-08 18:28:16.2139 Info Message Template Auto Format enabled
+2024-12-08 18:28:16.2233 Info Loading assembly: NLog.Web.AspNetCore
+2024-12-08 18:28:16.2483 Info Adding target FileTarget(Name=f)
+2024-12-08 18:28:16.2483 Info Adding target FileTarget(Name=All)
+2024-12-08 18:28:16.2483 Info Adding target FileTarget(Name=SqlQueryLog)
+2024-12-08 18:28:16.2645 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=86, FilePath=E:\Asp.Net\Asp.netCampPro\16\Projects\Eshop\Eshop.Web\bin\Debug\net8.0\nlog.config
+2024-12-08 18:31:23.6160 Info Message Template Auto Format enabled
+2024-12-08 18:31:23.6252 Info Loading assembly: NLog.Web.AspNetCore
+2024-12-08 18:31:23.6441 Info Adding target FileTarget(Name=f)
+2024-12-08 18:31:23.6538 Info Adding target FileTarget(Name=All)
+2024-12-08 18:31:23.6538 Info Adding target FileTarget(Name=SqlQueryLog)
+2024-12-08 18:31:23.6716 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=86, FilePath=E:\Asp.Net\Asp.netCampPro\16\Projects\Eshop\Eshop.Web\bin\Debug\net8.0\nlog.config
+2024-12-08 18:31:23.9445 Info Message Template Auto Format enabled
+2024-12-08 18:31:23.9548 Info Loading assembly: NLog.Web.AspNetCore
+2024-12-08 18:31:23.9819 Info Adding target FileTarget(Name=f)
+2024-12-08 18:31:23.9819 Info Adding target FileTarget(Name=All)
+2024-12-08 18:31:23.9819 Info Adding target FileTarget(Name=SqlQueryLog)
+2024-12-08 18:31:24.0073 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=86, FilePath=E:\Asp.Net\Asp.netCampPro\16\Projects\Eshop\Eshop.Web\bin\Debug\net8.0\nlog.config
+2024-12-08 18:34:32.9110 Info AppDomain Shutting down. Logger closing...
+2024-12-08 18:34:32.9199 Info Logger has been shut down.
+2024-12-11 08:38:10.0175 Info Message Template Auto Format enabled
+2024-12-11 08:38:10.0344 Info Loading assembly: NLog.Web.AspNetCore
+2024-12-11 08:38:10.0730 Info Adding target FileTarget(Name=f)
+2024-12-11 08:38:10.0730 Info Adding target FileTarget(Name=All)
+2024-12-11 08:38:10.0730 Info Adding target FileTarget(Name=SqlQueryLog)
+2024-12-11 08:38:10.1033 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=86, FilePath=E:\Asp.Net\Asp.netCampPro\16\Projects\Eshop\Eshop.Web\bin\Debug\net8.0\nlog.config
+2024-12-11 08:42:15.4566 Info AppDomain Shutting down. Logger closing...
+2024-12-11 08:42:15.4671 Info Logger has been shut down.
+2024-12-12 18:47:31.4923 Info Message Template Auto Format enabled
+2024-12-12 18:47:31.5166 Info Loading assembly: NLog.Web.AspNetCore
+2024-12-12 18:47:31.5457 Info Adding target FileTarget(Name=f)
+2024-12-12 18:47:31.5563 Info Adding target FileTarget(Name=All)
+2024-12-12 18:47:31.5563 Info Adding target FileTarget(Name=SqlQueryLog)
+2024-12-12 18:47:31.5750 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=86, FilePath=E:\Asp.Net\Asp.netCampPro\16\Projects\Eshop\Eshop.Web\bin\Debug\net8.0\nlog.config
+2024-12-12 18:49:48.6095 Info Message Template Auto Format enabled
+2024-12-12 18:49:48.6199 Info Loading assembly: NLog.Web.AspNetCore
+2024-12-12 18:49:48.6563 Info Adding target FileTarget(Name=f)
+2024-12-12 18:49:48.6661 Info Adding target FileTarget(Name=All)
+2024-12-12 18:49:48.6661 Info Adding target FileTarget(Name=SqlQueryLog)
+2024-12-12 18:49:48.6910 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=86, FilePath=E:\Asp.Net\Asp.netCampPro\16\Projects\Eshop\Eshop.Web\bin\Debug\net8.0\nlog.config
+2024-12-12 18:57:24.9182 Info Message Template Auto Format enabled
+2024-12-12 18:57:24.9182 Info Loading assembly: NLog.Web.AspNetCore
+2024-12-12 18:57:24.9657 Info Adding target FileTarget(Name=f)
+2024-12-12 18:57:24.9657 Info Adding target FileTarget(Name=All)
+2024-12-12 18:57:24.9657 Info Adding target FileTarget(Name=SqlQueryLog)
+2024-12-12 18:57:24.9974 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=86, FilePath=E:\Asp.Net\Asp.netCampPro\16\Projects\Eshop\Eshop.Web\bin\Debug\net8.0\nlog.config
+2024-12-12 18:57:46.0413 Info Message Template Auto Format enabled
+2024-12-12 18:57:46.0413 Info Loading assembly: NLog.Web.AspNetCore
+2024-12-12 18:57:46.0884 Info Adding target FileTarget(Name=f)
+2024-12-12 18:57:46.0884 Info Adding target FileTarget(Name=All)
+2024-12-12 18:57:46.0884 Info Adding target FileTarget(Name=SqlQueryLog)
+2024-12-12 18:57:46.1177 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=86, FilePath=E:\Asp.Net\Asp.netCampPro\16\Projects\Eshop\Eshop.Web\bin\Debug\net8.0\nlog.config
+2024-12-12 18:58:30.5839 Info Message Template Auto Format enabled
+2024-12-12 18:58:30.5977 Info Loading assembly: NLog.Web.AspNetCore
+2024-12-12 18:58:30.6503 Info Adding target FileTarget(Name=f)
+2024-12-12 18:58:30.6503 Info Adding target FileTarget(Name=All)
+2024-12-12 18:58:30.6503 Info Adding target FileTarget(Name=SqlQueryLog)
+2024-12-12 18:58:30.6814 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=86, FilePath=E:\Asp.Net\Asp.netCampPro\16\Projects\Eshop\Eshop.Web\bin\Debug\net8.0\nlog.config
+2024-12-12 18:59:25.5713 Info Message Template Auto Format enabled
+2024-12-12 18:59:25.5907 Info Loading assembly: NLog.Web.AspNetCore
+2024-12-12 18:59:25.6503 Info Adding target FileTarget(Name=f)
+2024-12-12 18:59:25.6653 Info Adding target FileTarget(Name=All)
+2024-12-12 18:59:25.6653 Info Adding target FileTarget(Name=SqlQueryLog)
+2024-12-12 18:59:25.7042 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=86, FilePath=E:\Asp.Net\Asp.netCampPro\16\Projects\Eshop\Eshop.Web\bin\Debug\net8.0\nlog.config
+2024-12-12 19:00:02.9706 Info Message Template Auto Format enabled
+2024-12-12 19:00:02.9876 Info Loading assembly: NLog.Web.AspNetCore
+2024-12-12 19:00:03.0414 Info Adding target FileTarget(Name=f)
+2024-12-12 19:00:03.0414 Info Adding target FileTarget(Name=All)
+2024-12-12 19:00:03.0414 Info Adding target FileTarget(Name=SqlQueryLog)
+2024-12-12 19:00:03.0647 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=86, FilePath=E:\Asp.Net\Asp.netCampPro\16\Projects\Eshop\Eshop.Web\bin\Debug\net8.0\nlog.config
+2024-12-12 19:00:34.7005 Info Message Template Auto Format enabled
+2024-12-12 19:00:34.7121 Info Loading assembly: NLog.Web.AspNetCore
+2024-12-12 19:00:34.7621 Info Adding target FileTarget(Name=f)
+2024-12-12 19:00:34.7621 Info Adding target FileTarget(Name=All)
+2024-12-12 19:00:34.7621 Info Adding target FileTarget(Name=SqlQueryLog)
+2024-12-12 19:00:34.7986 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=86, FilePath=E:\Asp.Net\Asp.netCampPro\16\Projects\Eshop\Eshop.Web\bin\Debug\net8.0\nlog.config
+2024-12-12 19:00:51.4855 Info AppDomain Shutting down. Logger closing...
+2024-12-12 19:00:51.4986 Info Logger has been shut down.
+2024-12-12 19:01:00.0103 Info Message Template Auto Format enabled
+2024-12-12 19:01:00.0257 Info Loading assembly: NLog.Web.AspNetCore
+2024-12-12 19:01:00.0750 Info Adding target FileTarget(Name=f)
+2024-12-12 19:01:00.0750 Info Adding target FileTarget(Name=All)
+2024-12-12 19:01:00.0750 Info Adding target FileTarget(Name=SqlQueryLog)
+2024-12-12 19:01:00.1018 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=86, FilePath=E:\Asp.Net\Asp.netCampPro\16\Projects\Eshop\Eshop.Web\bin\Debug\net8.0\nlog.config
+2024-12-12 19:37:58.7456 Info Message Template Auto Format enabled
+2024-12-12 19:37:58.7595 Info Loading assembly: NLog.Web.AspNetCore
+2024-12-12 19:37:58.7880 Info Adding target FileTarget(Name=f)
+2024-12-12 19:37:58.7880 Info Adding target FileTarget(Name=All)
+2024-12-12 19:37:58.7880 Info Adding target FileTarget(Name=SqlQueryLog)
+2024-12-12 19:37:58.8050 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=86, FilePath=E:\Asp.Net\Asp.netCampPro\16\Projects\Eshop\Eshop.Web\bin\Debug\net8.0\nlog.config
+2024-12-12 19:42:14.1672 Info AppDomain Shutting down. Logger closing...
+2024-12-12 19:42:14.1672 Info Logger has been shut down.
+2024-12-14 03:06:33.1484 Info Message Template Auto Format enabled
+2024-12-14 03:06:33.1749 Info Loading assembly: NLog.Web.AspNetCore
+2024-12-14 03:06:33.2618 Info Adding target FileTarget(Name=f)
+2024-12-14 03:06:33.2618 Info Adding target FileTarget(Name=All)
+2024-12-14 03:06:33.2618 Info Adding target FileTarget(Name=SqlQueryLog)
+2024-12-14 03:06:33.2964 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=86, FilePath=E:\Asp.Net\Asp.netCampPro\16\Projects\Eshop\Eshop.Web\bin\Debug\net8.0\nlog.config
+2024-12-14 03:17:23.8839 Info Message Template Auto Format enabled
+2024-12-14 03:17:23.8972 Info Loading assembly: NLog.Web.AspNetCore
+2024-12-14 03:17:23.9493 Info Adding target FileTarget(Name=f)
+2024-12-14 03:17:23.9493 Info Adding target FileTarget(Name=All)
+2024-12-14 03:17:23.9493 Info Adding target FileTarget(Name=SqlQueryLog)
+2024-12-14 03:17:23.9754 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=86, FilePath=E:\Asp.Net\Asp.netCampPro\16\Projects\Eshop\Eshop.Web\bin\Debug\net8.0\nlog.config
+2024-12-26 12:18:30.7426 Info Message Template Auto Format enabled
+2024-12-26 12:18:30.7535 Info Loading assembly: NLog.Web.AspNetCore
+2024-12-26 12:18:30.7785 Info Adding target FileTarget(Name=f)
+2024-12-26 12:18:30.7785 Info Adding target FileTarget(Name=All)
+2024-12-26 12:18:30.7785 Info Adding target FileTarget(Name=SqlQueryLog)
+2024-12-26 12:18:30.8040 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=86, FilePath=E:\Asp.Net\Asp.netCampPro\16\Projects\Eshop\Eshop.Web\bin\Debug\net8.0\nlog.config
+2024-12-26 12:38:50.5853 Info Message Template Auto Format enabled
+2024-12-26 12:38:50.5853 Info Loading assembly: NLog.Web.AspNetCore
+2024-12-26 12:38:50.6325 Info Adding target FileTarget(Name=f)
+2024-12-26 12:38:50.6325 Info Adding target FileTarget(Name=All)
+2024-12-26 12:38:50.6325 Info Adding target FileTarget(Name=SqlQueryLog)
+2024-12-26 12:38:50.6521 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=86, FilePath=E:\Asp.Net\Asp.netCampPro\16\Projects\Eshop\Eshop.Web\bin\Debug\net8.0\nlog.config
+2025-01-03 18:17:46.0195 Info Message Template Auto Format enabled
+2025-01-03 18:17:46.0562 Info Loading assembly: NLog.Web.AspNetCore
+2025-01-03 18:17:46.1259 Info Adding target FileTarget(Name=f)
+2025-01-03 18:17:46.1259 Info Adding target FileTarget(Name=All)
+2025-01-03 18:17:46.1409 Info Adding target FileTarget(Name=SqlQueryLog)
+2025-01-03 18:17:46.1602 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=86, FilePath=E:\Asp.Net\Asp.netCampPro\16\Projects\Eshop\Eshop.Web\bin\Debug\net8.0\nlog.config
+2025-01-04 09:45:44.0012 Info Message Template Auto Format enabled
+2025-01-04 09:45:44.0012 Info Loading assembly: NLog.Web.AspNetCore
+2025-01-04 09:45:44.0808 Info Adding target FileTarget(Name=f)
+2025-01-04 09:45:44.0808 Info Adding target FileTarget(Name=All)
+2025-01-04 09:45:44.0808 Info Adding target FileTarget(Name=SqlQueryLog)
+2025-01-04 09:45:44.0978 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=86, FilePath=E:\Asp.Net\Asp.netCampPro\16\Projects\Eshop\Eshop.Web\bin\Debug\net8.0\nlog.config
+2025-01-04 09:53:24.9603 Info AppDomain Shutting down. Logger closing...
+2025-01-04 09:53:24.9744 Info Logger has been shut down.
+2025-01-08 10:22:57.4714 Info Registered target NLog.Targets.FileTarget(Name=f)
+2025-01-08 10:22:57.4905 Info Registered target NLog.Targets.FileTarget(Name=All)
+2025-01-08 10:22:57.4905 Info Registered target NLog.Targets.FileTarget(Name=SqlQueryLog)
+2025-01-08 10:22:57.4905 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2025-01-08 10:22:57.5080 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-01-08 10:22:57.5180 Info Configuration initialized.
+2025-01-08 10:22:58.7684 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-01-08 10:35:51.5483 Info Registered target NLog.Targets.FileTarget(Name=f)
+2025-01-08 10:35:51.5664 Info Registered target NLog.Targets.FileTarget(Name=All)
+2025-01-08 10:35:51.5664 Info Registered target NLog.Targets.FileTarget(Name=SqlQueryLog)
+2025-01-08 10:35:51.5664 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2025-01-08 10:35:51.6024 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-01-08 10:35:51.6148 Info Configuration initialized.
+2025-01-08 10:35:52.8540 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-01-08 10:51:48.0792 Info Registered target NLog.Targets.FileTarget(Name=f)
+2025-01-08 10:51:48.1011 Info Registered target NLog.Targets.FileTarget(Name=All)
+2025-01-08 10:51:48.1011 Info Registered target NLog.Targets.FileTarget(Name=SqlQueryLog)
+2025-01-08 10:51:48.1011 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2025-01-08 10:51:48.1191 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-01-08 10:51:48.1309 Info Configuration initialized.
+2025-01-08 10:51:48.3073 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-01-08 10:54:23.2353 Info Registered target NLog.Targets.FileTarget(Name=f)
+2025-01-08 10:54:23.2538 Info Registered target NLog.Targets.FileTarget(Name=All)
+2025-01-08 10:54:23.2538 Info Registered target NLog.Targets.FileTarget(Name=SqlQueryLog)
+2025-01-08 10:54:23.2538 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2025-01-08 10:54:23.2901 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-01-08 10:54:23.3095 Info Configuration initialized.
+2025-01-08 10:54:24.3529 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-01-08 10:54:46.9875 Info Registered target NLog.Targets.FileTarget(Name=f)
+2025-01-08 10:54:47.0044 Info Registered target NLog.Targets.FileTarget(Name=All)
+2025-01-08 10:54:47.0044 Info Registered target NLog.Targets.FileTarget(Name=SqlQueryLog)
+2025-01-08 10:54:47.0044 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2025-01-08 10:54:47.0428 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-01-08 10:54:47.0549 Info Configuration initialized.
+2025-01-08 10:54:48.0935 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-01-08 10:57:58.7083 Info Registered target NLog.Targets.FileTarget(Name=f)
+2025-01-08 10:57:58.7083 Info Registered target NLog.Targets.FileTarget(Name=All)
+2025-01-08 10:57:58.7200 Info Registered target NLog.Targets.FileTarget(Name=SqlQueryLog)
+2025-01-08 10:57:58.7200 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2025-01-08 10:57:58.7509 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-01-08 10:57:58.7617 Info Configuration initialized.
+2025-01-08 10:57:59.8704 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-01-08 11:11:38.4855 Info Registered target NLog.Targets.FileTarget(Name=f)
+2025-01-08 11:11:38.5056 Info Registered target NLog.Targets.FileTarget(Name=All)
+2025-01-08 11:11:38.5056 Info Registered target NLog.Targets.FileTarget(Name=SqlQueryLog)
+2025-01-08 11:11:38.5056 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2025-01-08 11:11:38.5359 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-01-08 11:11:38.5359 Info Configuration initialized.
+2025-01-08 11:11:39.6691 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-01-08 11:16:57.0805 Info Registered target NLog.Targets.FileTarget(Name=f)
+2025-01-08 11:16:57.0805 Info Registered target NLog.Targets.FileTarget(Name=All)
+2025-01-08 11:16:57.0805 Info Registered target NLog.Targets.FileTarget(Name=SqlQueryLog)
+2025-01-08 11:16:57.0973 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2025-01-08 11:16:57.1111 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-01-08 11:16:57.1111 Info Configuration initialized.
+2025-01-08 11:16:57.3750 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config

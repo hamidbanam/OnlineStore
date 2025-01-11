@@ -1,0 +1,153 @@
+﻿@using OnlineStore.Application.Extensions
+@using OnlineStore.Application.Generators
+@using OnlineStore.Application.Static
+@using OnlineStore.Domain.ViewModel.Admin.Product
+@model FilterProductViewModel
+@{
+    ViewData["Title"] = "لیست محصولات";
+}
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="header">
+                <h2>جستجو</h2>
+            </div>
+            <div class="body">
+                <form asp-area="Admin" asp-controller="AdminProduct" asp-action="List" id="filter-search">
+                    <input type="hidden" asp-for="Page">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input asp-for="Title" type="text" class="form-control" placeholder="عنوان">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input value="" asp-for="Price" type="number" class="form-control" placeholder="قیمت">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 ">
+                            <div class="form-group">
+                                <div class="select-wrapper">
+                                    <select asp-for="Status" asp-items="@Html.GetEnumSelectList<FilterProductStatus>()"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-border-radius w-50">جستجو</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="card">
+            <div class="header">
+                <h2>@ViewData["Title"]</h2>
+            </div>
+            <div class="body">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <a asp-area="Admin" asp-controller="AdminProduct" asp-action="Create" class="btn btn-success btn-border-radius waves-effect">افزودن محصول جدید</a>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <div id="tableExport_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                        <table id="tableExport" class="display table table-hover table-checkable order-column width-per-100 dataTable" role="grid" aria-describedby="tableExport_info">
+                            <thead>
+                                <tr role="row">
+                                    <th class="center">تصویر</th>
+                                    <th class="center">عنوان </th>
+                                    <th class="center">قیمت</th>
+                                    <th class="center">موجودی</th>
+                                    <th class="center">تاریخ</th>
+                                    <th class="center">وضعیت حذف</th>
+                                    <th class="center">اقدام</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Entities)
+                                {
+                                    <tr role="row" class="odd">
+                                        <td class="center">
+                                            @if (item.Image == "NoPhoto.png")
+                                            {
+                                                <img src="@PathTools.DefaultImage" class="List_img" alt="@item.Title">
+
+                                            }
+                                            else
+                                            {
+                                                <img src="@PathTools.ProductImage/@item.Image" class="List_img" alt="@item.Title">
+                                            }
+                                        </td>
+                                        <td class="center">@item.Title</td>
+                                        <td class="center">@item.Price.ToString("#,0 تومان")</td>
+                                        <td class="center">
+                                            @if (item.Quantity > 3)
+                                            {
+                                                <span class="label l-bg-purple shadow-style">موجود</span>
+                                            }
+                                            else if (item.Quantity <= 3 && item.Quantity > 0)
+                                            {
+                                                <span class="label l-bg-cyan shadow-style">فقط @item.Quantity تا باقی مانده</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="label l-bg-orange shadow-style">تمام شده</span>
+                                            }
+                                        </td>
+                                        <td class="center"> @item.CreateDate.ToShamsi()</td>
+                                        <td class="center">
+                                            @if (item.IsDeleted)
+                                            {
+                                                <div class="badge col-red ">حذف شده</div>
+                                            }
+                                            else
+                                            {
+
+                                                <div class="badge col-green">حذف نشده</div>
+                                            }
+                                        </td>
+
+                                        <td class="center">
+                                            <a asp-area="Admin" asp-action="List" asp-controller="AdminProductColor" asp-route-productId="@item.ProductId" class="text-success">
+                                                <i class="material-icons">color_lens</i>
+                                            </a>
+                                            <a asp-area="Admin" asp-controller="AdminProductGallary" asp-action="List" asp-route-productId="@item.ProductId" class="text-info">
+                                                <i class="material-icons">add_a_photo</i>
+                                            </a>
+                                            <a asp-action="List" asp-controller="AdminProductFeature" asp-area="Admin" asp-route-productId="@item.ProductId" class="text-primary">
+                                                <i class="material-icons">featured_play_list</i>
+                                            </a>
+                                            <a asp-action="List" asp-controller="AdminProductComment" asp-area="Admin" asp-route-productId="@item.ProductId" class="text-primary">
+                                                <i class="material-icons">comment</i>
+                                            </a>
+                                            <a asp-area="Admin" asp-controller="AdminProduct" asp-action="Edit" asp-route-productId="@item.ProductId" class="text-warning">
+                                                <i class="material-icons">create</i>
+                                            </a>
+                                            <a onclick="confirmDelete('@Url.Action("Delete", "AdminProduct", new { id = item.ProductId })',event)" class="@((item.IsDeleted == false) ? "text-danger" : "text-info")">
+                                                <i class="material-icons">@((item.IsDeleted == false) ? "delete_forever" : "undo") </i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <div class="dataTables_info" id="tableExport_info" role="status" aria-live="polite">نمایش @Model.StartPage تا @Model.Entities.Count() از @Model.AllEntitiesCount ورودی</div>
+                        <partial name="_AdminPaging" model="@Model.GetCurrentPaging()" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

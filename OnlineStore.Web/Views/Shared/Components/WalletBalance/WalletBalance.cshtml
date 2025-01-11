@@ -1,0 +1,22 @@
+﻿@using OnlineStore.Application.Extensions
+@using OnlineStore.Domain.ViewModel.Wallet
+@model List<WalletViewModel>
+
+<li>
+    <span class="label">کیف پول</span>
+    <span class="detail">
+        @if(Model!=null&&Model.Any())
+        {
+            <span class="d-block fa-num">@Model.FirstOrDefault().BalanceAmount.ToMoney() <span class="currency fs-7 fw-bold">تومان</span></span>
+        }
+        else
+        {
+            <span class="d-block fa-num">0 <span class="currency fs-7 fw-bold">تومان</span></span>
+        }
+       
+        <a asp-area="UserPanel" asp-controller="Wallet" asp-action="List" class="link border-bottom-0 text-info fs-7 fw-bold">
+            افزایش
+            موجودی <i class="ri-arrow-left-s-line"></i>
+        </a>
+    </span>
+</li>

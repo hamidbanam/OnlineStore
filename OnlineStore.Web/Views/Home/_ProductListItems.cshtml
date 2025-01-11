@@ -1,0 +1,39 @@
+﻿@using OnlineStore.Application.Static
+@using OnlineStore.Domain.ViewModel.Client.Product
+@model LastesProductViewModel
+<div class="product-card product-card-horizontal">
+    <div class="product-thumbnail">
+        <a asp-area="" asp-controller="Home" asp-action="ProductDetail" asp-route-slug="@Model.Slug">
+            <img src="@PathTools.ProductImage/@Model.ProductImage" alt="@Model.ProductTitle">
+        </a>
+    </div>
+    <div class="product-card-body">
+        <h2 class="product-title">
+            <a asp-area="" asp-controller="Home" asp-action="ProductDetail" asp-route-slug="@Model.Slug">
+                @Model.ProductTitle
+            </a>
+        </h2>
+        <div class="product-variant">
+            @foreach (var color in Model.Colors)
+            {
+                @if (color.Quantity > 0)
+                {
+                    <span class="color" style="background-color:@color.Color"></span>
+                }
+
+            }
+            <span>+</span>
+        </div>
+        <div class="product-price fa-num">
+            <span class="price-now">@Model.Price.ToString("#,0") <span class="currency">تومان</span></span>
+        </div>
+    </div>
+    <div class="product-card-footer">
+        <div class="d-flex align-items-center justify-content-between mt-2 py-2">
+            <div class="product-actions">
+             <partial name="_ProductCardFooter" />
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end of product-card -->

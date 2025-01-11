@@ -1,0 +1,35 @@
+﻿@using OnlineStore.Application.Generators
+@using OnlineStore.Application.Services.Interface
+@using OnlineStore.Domain.Enum.Product
+@using OnlineStore.Domain.ViewModel.Client.Comment
+@model List<ClientCommentViewModel>
+
+@foreach (var item in Model)
+{
+    <div class="comment">
+        <div class="comment-header">
+            <span>@item.CreateDate.ToShamsiDay() @item.CreateDate.ToShamsiMonth().GetPersianMonthName() @item.CreateDate.ToShamsiYear() </span>
+            <span>@item.FirstName @item.LastName</span>
+        </div>
+        <div class="comment-body">
+            <p>
+                @item.Text
+            </p>
+            <ul>
+
+                @foreach (var advantages in item.Advantages)
+                {
+                    <li class="comment-evaluation positive">@advantages</li>
+                }
+                @foreach (var disadvantages in item.Disadvantages)
+                {
+                    <li class="comment-evaluation negative">
+                        @disadvantages
+                    </li>
+                }
+
+            </ul>
+        </div>
+        <partial name="_CommentFooter" model="@item" />
+    </div>
+}

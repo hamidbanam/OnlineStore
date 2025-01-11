@@ -1,0 +1,65 @@
+﻿@using OnlineStore.Domain.ViewModel.ContactUs
+@model CreateContactUsViewModel
+@{
+    ViewData["Title"] = "تماس با ما";
+}
+<div class="ui-box bg-white">
+    <div class="ui-box-title fs-5 fw-bold">تماس با ما</div>
+    <div class="ui-box-content">
+        <div class="fs-7 text-secondary mb-5">
+            برای پیگیری یا سوال درباره سفارش و ارسال پیام بهتر است از
+            فرم
+            زیر استفاده کنید.
+        </div>
+        <!-- start of contact-us-form -->
+        <form asp-area="" asp-controller="ContactUs" asp-action="CreateContactUs" class="contact-us-form">
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- start of form-element -->
+                    <div class="form-element-row mb-5">
+                        <label class="label" asp-for="Title"></label>
+                        <input asp-for="Title" type="text" class="form-control" placeholder="عنوان">
+                    </div>
+                    <!-- end of form-element -->
+                </div>
+                <div class="col-md-6">
+                    <!-- start of form-element -->
+                    <div class="form-element-row mb-5">
+                        <label class="label" asp-for="FullName"></label>
+                        <input type="text" asp-for="FullName" class="form-control" placeholder="نام کامل">
+                    </div>
+                    <!-- end of form-element -->
+                </div>
+                <div class="col-md-6">
+                    <!-- start of form-element -->
+                    <div class="form-element-row mb-5">
+                        <label class="label" asp-for="Email"></label>
+                        <input asp-for="Email" type="text" class="form-control" placeholder="example@example.com">
+                    </div>
+                    <!-- end of form-element -->
+                </div>
+                <div class="col-md-6">
+                    <!-- start of form-element -->
+                    <div class="form-element-row mb-5">
+                        <label class="label" asp-for="Mobile"></label>
+                        <input asp-for="Mobile" type="text" class="form-control" placeholder="09xxxxxxxxx">
+                    </div>
+                    <!-- end of form-element -->
+                </div>
+                <div class="col-12">
+                    <!-- start of form-element -->
+                    <div class="form-element-row mb-5">
+                        <label class="label" asp-for="Description"></label>
+                        <textarea asp-for="Description" rows="5" class="form-control" placeholder="متن پیام"></textarea>
+                    </div>
+                    <!-- end of form-element -->
+                </div>
+                <div asp-validation-summary="All"></div>
+                <div class="col-12 text-end">
+                    <button type="submit" class="btn btn-primary px-4">ثبت و ارسال</button>
+                </div>
+            </div>
+        </form>
+        <!-- end of contact-us-form -->
+    </div>
+</div>

@@ -1,0 +1,15 @@
+﻿@using OnlineStore.Domain.ViewModel.Admin.Feature
+@model CreateFeatureViewModel
+
+@{
+    ViewData["Title"] = "افزودن ویژگی";
+}
+<form asp-area="Admin" asp-controller="AdminFeature" asp-action="Create" method="post">
+    <div class="form-group">
+        <div class="form-line">
+            <input asp-for="Title" type="text" class="form-control" placeholder=" عنوان" />
+        </div>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary m-t-15 waves-effect">افزودن</button>
+</form>

@@ -1,0 +1,83 @@
+﻿@using OnlineStore.Application.Extensions
+@using OnlineStore.Application.Generators
+@using OnlineStore.Domain.Enum.Ticket
+@using OnlineStore.Domain.Model.Ticket
+@using OnlineStore.Domain.ViewModel.Tiket
+@model Ticket
+
+@{
+    ViewData["Title"] = "جزئیات تیکت";
+}
+<div class="row clearfix">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="card">
+            <div class="header">
+                <div class="chat-header clearfix">
+                    <img src="/admin-assets/images/user/AdminUser.jpg" alt="avatar">
+                    <div class="chat-about">
+                        <div class="chat-with">@Model.User.GetFullName()</div>
+                    </div>
+                </div>
+            </div>
+            <div class="chat">
+                <div class="chat-history" id="chat-conversation">
+                    <ul>
+
+                        @foreach (var message in Model.TicketMessages)
+                        {
+                            if (message.SenderId == Model.UserId)
+                            {
+                                <li class="clearfix">
+                                    <div class="message-data text-right">
+                                        <span class="message-data-time">
+                                            @message.CeateDate.ToShamsi()
+                                        </span>
+                                        &nbsp; &nbsp;
+                                        <span class="message-data-name">@message.Sender.GetFullName()</span>
+                                    </div>
+                                    <div class="message other-message float-right">
+                                        @message.Message
+                                    </div>
+                                </li>
+                            }
+                            else
+                            {
+
+                                <li>
+                                    <div class="message-data">
+                                        <span class="message-data-name">@message.Sender.GetFullName()</span>
+                                        <span class="message-data-time">@message.CeateDate.ToShamsi()</span>
+                                    </div>
+                                    <div class="message my-message">
+                                        <p>
+                                            @message.Message
+                                        </p>
+                                        <div class="row">
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+                        }
+                    </ul>
+                </div>
+
+            </div>
+
+            @if (Model.Status != TicketStatus.Close)
+            {
+                <partial name="_AnswerTicket" model="@(new AdminAsnwerTicketViewModel(){
+TicketId=Model.TicketId
+})" />
+            }
+            else
+            {
+                <span class="badge col-brown">@Model.Status.GetDisplayName()</span>
+
+            }
+
+        </div>
+    </div>
+</div>
+
+
+

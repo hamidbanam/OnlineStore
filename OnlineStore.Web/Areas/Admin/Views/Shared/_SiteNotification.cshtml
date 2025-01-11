@@ -1,0 +1,95 @@
+﻿@if (TempData["SuccessMessage"] != null)
+{
+    <script>
+            const Toast = Swal.mixin({
+          toast: true,
+          width:400,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+          }
+        });
+        Toast.fire({
+          icon: "success",
+          title: "@TempData["SuccessMessage"]"
+        });
+    </script>
+}
+@if (TempData["ErrorMessage"] != null)
+{
+    <script>
+           const Toast = Swal.mixin({
+          toast: true,
+          width:400,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+          }
+        });
+        Toast.fire({
+          icon: "error",
+          title: "@TempData["ErrorMessage"]"
+        });
+    </script>
+}
+@if (TempData["WarningMessage"] != null)
+{
+    <script>
+          const Toast = Swal.mixin({
+          toast: true,
+          width:400,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          
+          didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+          }
+        });
+            Toast.fire({
+          icon: "warning",
+          title: "@TempData["WarningMessage"]",
+       
+        });
+
+    </script>
+}
+@if (TempData["InfoMessage"] != null)
+{
+    <script>
+         let timerInterval;
+        Swal.fire({
+            position: "top-end",
+            title: "به فروشگاه منطقه آزاد انزلی",
+            html:  "@TempData["InfoMessage"]",
+             icon: "info",
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: () => {
+                Swal.showLoading();
+                const timer = Swal.getPopup().querySelector("b");
+                timerInterval = setInterval(() => {
+                    timer.textContent = `${Swal.getTimerLeft()}`;
+                }, 100);
+            },
+            willClose: () => {
+                clearInterval(timerInterval);
+            }
+        }).then((result) => {
+            /* Read more about handling dismissals below */
+            if (result.dismiss === Swal.DismissReason.timer) {
+                console.log("I was closed by the timer");
+            }
+        });
+    </script>
+}

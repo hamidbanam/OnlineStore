@@ -1,0 +1,113 @@
+﻿@using OnlineStore.Application.Generators
+@using OnlineStore.Application.Static
+@using OnlineStore.Domain.ViewModel.Admin.Gallary
+@model List<ProductGallaryViewModel>
+@{
+    ViewData["Title"] = "تصاویر";
+}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="header">
+                <h2>@ViewData["Title"]</h2>
+            </div>
+            <div class="body">
+                <div class="dt-buttons m-3">
+                    <a onclick="Create(@ViewData["ProductId"])" class="btn btn-success btn-border-radius waves-effect">افزودن تصویر جدید</a>
+                </div>
+                <div class="table-responsive">
+                    <div id="tableExport_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                        <table id="tableExport" class="display table table-hover table-checkable order-column width-per-100 dataTable" role="grid" aria-describedby="tableExport_info">
+                            <thead>
+                                <tr role="row">
+                                    <th class="center">تصویر</th>
+                                    <th class="center">عنوان </th>
+                                    <th class="center">تاریخ</th>
+                                    <th class="center">اقدام</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                             @if(Model!=null)
+                             {
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr role="row" class="odd" id="tr_@(item.GallaryId)">
+                                            <td class="center">
+                                                @if (item.ImageName == "NoPhoto.png")
+                                                {
+                                                    <img src="@PathTools.DefaultImage" class="List_img" alt="@item.ImageTitle">
+
+                                                }
+                                                else
+                                                {
+                                                    <img src="@PathTools.ProductImage/@item.ImageName" class="List_img" alt="@item.ImageTitle">
+                                                }
+                                            </td>
+                                            <td class="center">@item.ImageTitle</td>
+
+                                            <td class="center">
+                                                @item.CreateDate.ToShamsi()
+                                            </td>
+                                            <td class="center">
+                                                <a onclick="Edit(@item.GallaryId)" class="text-warning">
+                                                    <i class="material-icons">create</i>
+                                                </a>
+                                                <a onclick="confirmDeleteGallary(@item.GallaryId)" class="text-danger">
+                                                    <i class="material-icons">delete_forever</i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                             }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <a asp-area="Admin" asp-controller="AdminProduct" asp-action="List" type="button" class="btn btn-primary waves-effect">
+                    <i class="material-icons">low_priority</i>
+                    <span>بازگشت به لیست محصولات</span>
+                </a>
+            </div>
+         
+        </div>
+    </div>
+</div>
+<partial name="_Modal">
+    @section Scripts {
+        <script>
+            function Create(productId) {
+                $.get("/Admin/Create-Gallary/"+productId, function (res) {
+                    $("#exampleModalCenter").modal('show');
+                    $("#bodyModal").html(res);
+                });
+            }
+
+            function Edit(gallaryId) {
+                $.get("/Admin/Edit-Gallary/" + gallaryId, function (res) {
+                    $("#exampleModalCenter").modal('show');
+                    $("#bodyModal").html(res);
+                    $("#exampleModalCenterTitle").html("ویرایش");
+                });
+            }
+
+                   function confirmDeleteGallary(id) {
+                Swal.fire({
+                    text: "آیا از انجام این عملیات مطمئن هستید؟",
+                    icon: "question",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "بلـــــــــه",
+                    cancelButtonText: "خیــــــــر"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.get("/Admin/AdminProductGallary/Delete/" + id, function () {
+                            $("#tr_" + id).hide('slow');
+                        });
+
+                    }
+
+                });
+            }
+        </script>
+    }

@@ -1,0 +1,26 @@
+﻿@using OnlineStore.Domain.ViewModel.Admin.Gallary
+@model CreateProductGallaryViewModel
+@{
+    ViewData["Title"] = "افزودن تصویر";
+}
+<form asp-area="Admin" asp-controller="AdminProductGallary" asp-action="Create" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="ProductId" />
+    <div class="form-group">
+        <div class="form-line">
+            <input asp-for="ImageTitle" type="text" class="form-control" placeholder=" عنوان" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="file-field input-field">
+            <div class="btn">
+                <span>تصویر</span>
+                <input asp-for="ImageName" type="file">
+            </div>
+            <div class="file-path-wrapper">
+                <input class="file-path validate" type="text">
+            </div>
+        </div>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary m-t-15 waves-effect">افزودن</button>
+</form>

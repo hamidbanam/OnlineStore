@@ -1,0 +1,81 @@
+﻿@using OnlineStore.Domain.ViewModel.UserPanel
+@model List<AddressListViewModel>
+@{
+    ViewData["Title"] = " آدرس ها";
+
+}
+<div class="ui-box bg-white mb-5">
+    <div class="ui-box-title">@ViewData["Title"]</div>
+    <div class="ui-box-content">
+        <!-- start of user-address-items -->
+        <div class="user-address-items">
+            <!-- start of user-address-item -->
+            @foreach (var item in Model)
+            {
+             
+                <div class="user-address-item">
+                    <div class="custom-radio-box">
+                        <input class="custom-radio-box-input" name="userAddress" id="userAddress01">
+                        <label for="userAddress01" class="custom-radio-box-label">
+                            <span class="d-block user-address-recipient mb-2">
+                                @item.State،@item.City
+                            </span>
+                            <span class="d-block user-contact-items fa-num mb-3">
+                                <span class="user-contact-item">
+                                    <i class="ri-mail-line icon"></i>
+                                    <span class="value">@item.PostCod</span>
+                                </span>
+                                <span class="user-contact-item">
+                                    <i class="ri-phone-line icon"></i>
+                                    <span class="value">@item.Mobile</span>
+                                </span>
+                                <span class="user-contact-item">
+                                    <i class="ri-user-line icon"></i>
+                                    <span class="value">@item.UserName</span>
+                                </span>
+                            </span>
+                            <span class="d-flex align-items-center justify-content-end">
+                                <a  onclick="confirmDelete('@Url.Action("Delete","Address",new{id=item.AddressId})')" class="link border-bottom-0 fs-7 fw-bold" data-remodal-target="remove-from-addresses-modal">حذف</a>
+                                <span class="text-secondary mx-2">|</span>
+                                <a asp-area="UserPanel" asp-controller="Address" asp-action="Edit" asp-route-addressId="@item.AddressId" class="link border-bottom-0 fs-7 fw-bold">ویرایش</a>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+            }
+            <!-- end of user-address-item -->
+            <!-- end of user-address-item -->
+            <!-- start of user-add-address-btn-container -->
+            <div class="user-address-item user-add-address-btn-container">
+                <a class="user-add-address-btn link " asp-area="UserPanel" asp-controller="Address" asp-action="Create">
+                    <i class="ri-add-line icon"></i>
+                    <span>آدرس جدید</span>
+                </a>
+            </div>
+            <!-- end of user-add-address-btn-container -->
+        </div>
+        <!-- end of user-address-items -->
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function confirmDelete(url) {
+            Swal.fire({
+                text: "آیا از انجام این عملیات مطمئن هستید؟",
+                icon: "question",
+                showCancelButton: true,
+                confirmButtonColor: "#00897B",
+                cancelButtonColor: "#f44336",
+                confirmButtonText: "بلـــــــــه",
+                cancelButtonText: "خیــــــــر"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    location.href = url;
+                }
+
+            });
+        }
+    </script>
+
+}

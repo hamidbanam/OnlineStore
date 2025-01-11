@@ -1,0 +1,77 @@
+﻿@using OnlineStore.Application.Generators
+@using OnlineStore.Application.Static
+@using OnlineStore.Domain.Enum.Product
+@using OnlineStore.Domain.ViewModel.Client.Comment
+@model List<ClientCommentViewModel>
+@{
+    ViewData["Title"] = "نظرات";
+}
+
+<div class="ui-box bg-white mb-5">
+    <div class="ui-box-title">@ViewData["Title"] </div>
+    <div class="ui-box-content comments">
+        <div class="row">
+
+            @if (Model != null && Model.Any())
+            {
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-6 mb-4">
+                        <div class="border rounded p-3">
+                            <a asp-area="" asp-controller="Home" asp-action="ProductDetail" asp-route-slug="@item.Product.Slug" class="d-flex align-items-center link pb-3">
+                                <img src="@PathTools.ProductImage/@item.Product.Image" width="60" alt="@item.Product.ProductTitle">
+                                <span class="fs-7 fw-bold">
+                                    @item.Product.ProductTitle
+                                </span>
+                            </a>
+                            <!-- start of comment -->
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <span>@item.CreateDate.ToShamsiDay() @item.CreateDate.ToShamsiMonth().GetPersianMonthName() @item.CreateDate.ToShamsiYear()</span>
+                                </div>
+                                <div class="comment-body">
+                                    <p>
+                                        @item.Text
+                                    </p>
+                                    <ul>
+
+                                        @foreach (var positive in item.Advantages)
+                                        {
+                                            <li class="comment-evaluation positive">@positive</li>
+                                        }
+                                        @foreach (var negative in item.Disadvantages)
+                                        {
+                                            <li class="comment-evaluation negative">@negative</li>
+                                        }
+
+                                    </ul>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <partial name="_CommentFooter" model="@item" />
+                                    @if (item.Status==ProductCommentStatus.Pendding)
+                                    {
+                                        <span class="badge bg-warning rounded-pill">
+                                            در حال
+                                            بررسی
+                                        </span>
+                                    }
+                                    else if(item.Status==ProductCommentStatus.Conmfirmed)
+                                    {
+                                        <span class="badge bg-success rounded-pill">
+                                          تایید شد
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-danger rounded-pill">رد شد</span>
+                                    }
+                                </div>
+                            </div>
+                            <!-- end of comment -->
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,135 @@
+﻿@using OnlineStore.Application.Extensions
+@using OnlineStore.Application.Generators
+@using OnlineStore.Domain.Enum.Ticket
+@using OnlineStore.Domain.ViewModel.Tiket
+@model AdminFilterTicketViewModel
+@{
+    ViewData["Title"] = "لیست تیکت ها";
+}
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="header">
+                <h2>جستجو</h2>
+            </div>
+            <div class="body">
+                <form asp-area="Admin" asp-controller="AdminTicket" asp-action="List" id="filter-search">
+                    <input type="hidden" asp-for="Page">
+                    <div class="row">
+                        <div class="col-md-3 ">
+                            <div class="form-group">
+                                <div class="select-wrapper">
+                                    <select asp-for="Status" asp-items="@Html.GetEnumSelectList<TicketStatus>()"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-border-radius w-50">جستجو</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="card">
+            <div class="header">
+                <h2>@ViewData["Title"]</h2>
+            </div>
+            <div class="body">
+                <div class="table-responsive">
+                    <div id="tableExport_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                        <table id="tableExport" class="display table table-hover table-checkable order-column width-per-100 dataTable" role="grid" aria-describedby="tableExport_info">
+                            <thead>
+                                <tr role="row">
+                                    <th class="center">موضوع</th>
+                                    <th class="center">ارسال کننده </th>
+                                    <th class="center">بخش</th>
+                                    <th class="center">الویت</th>
+                                    <th class="center">وضعیت</th>
+                                    <th class="center">تاریخ ایجاد </th>
+                                    <th class="center">اقدام</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Entities)
+                                {
+                                    <tr role="row" class="odd">
+                                        <td class="center">@item.Title</td>
+                                        <td class="center">
+                                            <span>نام و نام خانوادگی: @item.FullName</span>
+                                            <hr />
+                                            <span>موبایل: @item.Mobile</span>
+                                            <hr />
+                                            <span>ایمیل: @item.Email
+                                        </td>
+                                        <td class="center">@item.Section.GetDisplayName()</td>
+                                        <td class="center">@item.Priority.GetDisplayName()</td>
+                                        <td class="center">
+                                            @if (item.Status == TicketStatus.Pending)
+                                            {
+                                                <div class="badge col-cyan">@item.Status.GetDisplayName()</div>
+                                            }
+                                            else if (item.Status == TicketStatus.UserAnswered)
+                                            {
+                                                <div class="badge col-deep-orange">@item.Status.GetDisplayName()</div>
+                                            }
+                                            else if (item.Status == TicketStatus.AdminAnswered)
+                                            {
+                                                <div class="badge col-green">@item.Status.GetDisplayName()</div>
+                                            }
+                                            else if (item.Status == TicketStatus.Close)
+                                            {
+                                                <div class="badge col-brown">@item.Status.GetDisplayName()</div>
+                                            }
+                                        </td>
+                                        <td class="center">@item.Createdate.ToShamsi()</td>
+                                        <td class="center">
+                                            <a asp-area="Admin" asp-action="Detail" asp-controller="AdminTicket" asp-route-ticketId="@item.TiketId" class="text-warning">
+                                                <i class="material-icons">create</i>
+                                            </a>
+                                            @if (item.Status != TicketStatus.Close)
+                                            {
+                                                <a onclick="confirmDelete('@Url.Action("CloseTicket","AdminTicket",new{ticketId=item.TiketId})')" class="text-danger">
+                                                    <i class="material-icons">vpn_key</i>
+                                                </a>
+                                            }
+
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <div class="dataTables_info" id="tableExport_info" role="status" aria-live="polite">نمایش @Model.StartPage تا @Model.Entities.Count() از @Model.AllEntitiesCount ورودی</div>
+                        <partial name="_AdminPaging" model="@Model.GetCurrentPaging()" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script>
+               function confirmDelete(url) {
+            Swal.fire({
+                text: "آیا از انجام این عملیات مطمئن هستید؟",
+                icon: "question",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "بلـــــــــه",
+                cancelButtonText: "خیــــــــر"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    location.href = url;
+                }
+
+            });
+        }
+    </script>
+}
