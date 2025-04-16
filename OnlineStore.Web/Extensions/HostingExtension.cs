@@ -95,7 +95,7 @@ namespace OnlineStore.Web.Extensions
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            app.UseAuthentication();
             app.UseAuthorization();
             app.UseStatusCodePagesWithReExecute("/error/404");
             app.MapControllerRoute(

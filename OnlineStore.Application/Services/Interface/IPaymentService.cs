@@ -9,7 +9,7 @@ namespace OnlineStore.Application.Services.Interface
 {
     public interface IPaymentService
     {
-        Task<StartPaymentResult> StartPaymentAsync(StartPaymentViewModel model);
+        Task<StartPaymentResult> StartPaymentAsync(StartPaymentViewModel model); 
         Task<CallBackPaymentResult> CallBackPaymentAsync(CallBackPaymentViewModel model);
     }
 }

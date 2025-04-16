@@ -284,3 +284,115 @@
 2025-01-08 11:16:57.1111 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
 2025-01-08 11:16:57.1111 Info Configuration initialized.
 2025-01-08 11:16:57.3750 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-01-20 11:01:33.8562 Info Registered target NLog.Targets.FileTarget(Name=f)
+2025-01-20 11:01:33.8774 Info Registered target NLog.Targets.FileTarget(Name=All)
+2025-01-20 11:01:33.8774 Info Registered target NLog.Targets.FileTarget(Name=SqlQueryLog)
+2025-01-20 11:01:33.8858 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2025-01-20 11:01:33.9001 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-01-20 11:01:33.9001 Info Configuration initialized.
+2025-01-20 11:01:35.8830 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-01-20 20:23:18.2474 Info Registered target NLog.Targets.FileTarget(Name=f)
+2025-01-20 20:23:18.2701 Info Registered target NLog.Targets.FileTarget(Name=All)
+2025-01-20 20:23:18.2701 Info Registered target NLog.Targets.FileTarget(Name=SqlQueryLog)
+2025-01-20 20:23:18.2701 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2025-01-20 20:23:18.2878 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-01-20 20:23:18.2988 Info Configuration initialized.
+2025-01-20 20:23:19.7910 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-01-30 20:33:58.3555 Info Registered target NLog.Targets.FileTarget(Name=f)
+2025-01-30 20:33:58.3728 Info Registered target NLog.Targets.FileTarget(Name=All)
+2025-01-30 20:33:58.3728 Info Registered target NLog.Targets.FileTarget(Name=SqlQueryLog)
+2025-01-30 20:33:58.3728 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2025-01-30 20:33:58.4048 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-01-30 20:33:58.4179 Info Configuration initialized.
+2025-01-30 20:34:01.2541 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-01-30 21:20:58.2438 Info Registered target NLog.Targets.FileTarget(Name=f)
+2025-01-30 21:20:58.2669 Info Registered target NLog.Targets.FileTarget(Name=All)
+2025-01-30 21:20:58.2669 Info Registered target NLog.Targets.FileTarget(Name=SqlQueryLog)
+2025-01-30 21:20:58.2669 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2025-01-30 21:20:58.3149 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-01-30 21:20:58.3387 Info Configuration initialized.
+2025-01-30 21:21:01.9027 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-02-04 23:08:12.8856 Info Registered target NLog.Targets.FileTarget(Name=f)
+2025-02-04 23:08:12.9094 Info Registered target NLog.Targets.FileTarget(Name=All)
+2025-02-04 23:08:12.9094 Info Registered target NLog.Targets.FileTarget(Name=SqlQueryLog)
+2025-02-04 23:08:12.9165 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2025-02-04 23:08:12.9165 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-02-04 23:08:12.9387 Info Configuration initialized.
+2025-02-04 23:08:14.5771 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-02-05 10:28:14.8855 Info Registered target NLog.Targets.FileTarget(Name=f)
+2025-02-05 10:28:14.8855 Info Registered target NLog.Targets.FileTarget(Name=All)
+2025-02-05 10:28:14.8855 Info Registered target NLog.Targets.FileTarget(Name=SqlQueryLog)
+2025-02-05 10:28:14.8991 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2025-02-05 10:28:14.9247 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-02-05 10:28:14.9378 Info Configuration initialized.
+2025-02-05 10:28:17.2394 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-02-05 11:12:24.7622 Info Registered target NLog.Targets.FileTarget(Name=f)
+2025-02-05 11:12:24.7741 Info Registered target NLog.Targets.FileTarget(Name=All)
+2025-02-05 11:12:24.7741 Info Registered target NLog.Targets.FileTarget(Name=SqlQueryLog)
+2025-02-05 11:12:24.7741 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2025-02-05 11:12:24.7977 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-02-05 11:12:24.8085 Info Configuration initialized.
+2025-02-05 11:12:25.2725 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-02-17 18:46:11.7782 Info Registered target NLog.Targets.FileTarget(Name=f)
+2025-02-17 18:46:11.8174 Info Registered target NLog.Targets.FileTarget(Name=All)
+2025-02-17 18:46:11.8174 Info Registered target NLog.Targets.FileTarget(Name=SqlQueryLog)
+2025-02-17 18:46:11.8260 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2025-02-17 18:46:11.8260 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-02-17 18:46:11.8511 Info Configuration initialized.
+2025-02-17 18:46:13.9879 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-04-04 18:08:03.6603 Info Registered target NLog.Targets.FileTarget(Name=f)
+2025-04-04 18:08:03.6841 Info Registered target NLog.Targets.FileTarget(Name=All)
+2025-04-04 18:08:03.6841 Info Registered target NLog.Targets.FileTarget(Name=SqlQueryLog)
+2025-04-04 18:08:03.7096 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2025-04-04 18:08:03.7729 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-04-04 18:08:03.7935 Info Configuration initialized.
+2025-04-04 18:08:06.9354 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-04-04 18:08:49.8973 Info Registered target NLog.Targets.FileTarget(Name=f)
+2025-04-04 18:08:49.9085 Info Registered target NLog.Targets.FileTarget(Name=All)
+2025-04-04 18:08:49.9085 Info Registered target NLog.Targets.FileTarget(Name=SqlQueryLog)
+2025-04-04 18:08:49.9085 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2025-04-04 18:08:49.9378 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-04-04 18:08:49.9494 Info Configuration initialized.
+2025-04-04 18:08:51.1695 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-04-04 18:11:42.3884 Info Registered target NLog.Targets.FileTarget(Name=f)
+2025-04-04 18:11:42.4105 Info Registered target NLog.Targets.FileTarget(Name=All)
+2025-04-04 18:11:42.4105 Info Registered target NLog.Targets.FileTarget(Name=SqlQueryLog)
+2025-04-04 18:11:42.4212 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2025-04-04 18:11:42.4553 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-04-04 18:11:42.4698 Info Configuration initialized.
+2025-04-04 18:11:44.7822 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-04-04 18:15:10.0693 Info Registered target NLog.Targets.FileTarget(Name=f)
+2025-04-04 18:15:10.0693 Info Registered target NLog.Targets.FileTarget(Name=All)
+2025-04-04 18:15:10.0822 Info Registered target NLog.Targets.FileTarget(Name=SqlQueryLog)
+2025-04-04 18:15:10.0822 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2025-04-04 18:15:10.1157 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-04-04 18:15:10.1157 Info Configuration initialized.
+2025-04-04 18:15:11.3227 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-04-04 18:33:07.6778 Info Registered target NLog.Targets.FileTarget(Name=f)
+2025-04-04 18:33:07.6778 Info Registered target NLog.Targets.FileTarget(Name=All)
+2025-04-04 18:33:07.6778 Info Registered target NLog.Targets.FileTarget(Name=SqlQueryLog)
+2025-04-04 18:33:07.6984 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2025-04-04 18:33:07.7424 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-04-04 18:33:07.7705 Info Configuration initialized.
+2025-04-04 18:33:10.1384 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-04-09 17:49:00.8309 Info Registered target NLog.Targets.FileTarget(Name=f)
+2025-04-09 17:49:00.8575 Info Registered target NLog.Targets.FileTarget(Name=All)
+2025-04-09 17:49:00.8683 Info Registered target NLog.Targets.FileTarget(Name=SqlQueryLog)
+2025-04-09 17:49:00.8683 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2025-04-09 17:49:00.8993 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-04-09 17:49:00.9113 Info Configuration initialized.
+2025-04-09 17:49:03.9438 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-04-16 17:59:54.2022 Info Registered target NLog.Targets.FileTarget(Name=f)
+2025-04-16 17:59:54.2199 Info Registered target NLog.Targets.FileTarget(Name=All)
+2025-04-16 17:59:54.2355 Info Registered target NLog.Targets.FileTarget(Name=SqlQueryLog)
+2025-04-16 17:59:54.2355 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2025-04-16 17:59:54.3069 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-04-16 17:59:54.3270 Info Configuration initialized.
+2025-04-16 18:00:03.2653 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-04-16 18:09:02.7328 Info Registered target NLog.Targets.FileTarget(Name=f)
+2025-04-16 18:09:02.7328 Info Registered target NLog.Targets.FileTarget(Name=All)
+2025-04-16 18:09:02.7466 Info Registered target NLog.Targets.FileTarget(Name=SqlQueryLog)
+2025-04-16 18:09:02.7466 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2025-04-16 18:09:02.7942 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config
+2025-04-16 18:09:02.8133 Info Configuration initialized.
+2025-04-16 18:09:04.8284 Info Validating config: TargetNames=f, All, SqlQueryLog, ConfigItems=84, FilePath=D:\OnlineStore\OnlineStore\OnlineStore.Web\bin\Debug\net8.0\nlog.config

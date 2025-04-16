@@ -1,18 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc.Razor;
-using Microsoft.AspNetCore.Mvc.ViewEngines;
-using Microsoft.AspNetCore.Mvc.ViewFeatures;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using OnlineStore.Application.Sender.Implentation;
 using OnlineStore.Application.Sender.Interface;
 using OnlineStore.Application.Services.Implentation;
 using OnlineStore.Application.Services.Interface;
 using OnlineStore.Data.ImplentationRepository;
 using OnlineStore.Domain.InterfaceRepository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnlineStore.Ioc.Container
 {

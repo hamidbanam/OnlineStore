@@ -14,7 +14,7 @@ namespace OnlineStore.Domain.Model.User.Role
         public int UserId { get; set; }
         public int RoleId { get; set; }
 
-        #region Relations
+        #region Relations 
         [ForeignKey(nameof(UserId))]
         public User.User? User { get; set; }  
 

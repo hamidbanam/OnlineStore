@@ -18,10 +18,10 @@ namespace OnlineStore.Application.Services.Implentation
         IWalletRepository walletRepository,
         IWalletService walletService,
         IOrderRepository orderRepository,
-        IUserRepository userRepository,
+        IUserRepository userRepository, 
         INovinoService novinoService) : IPaymentService
     {
-        public async Task<CallBackPaymentResult> CallBackPaymentAsync(CallBackPaymentViewModel model)
+        public async Task<CallBackPaymentResult> CallBackPaymentAsync(CallBackPaymentViewModel model) 
         {
             if (model.PaymentStatus.ToLower() == "ok")
             {

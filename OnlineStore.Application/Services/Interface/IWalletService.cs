@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OnlineStore.Application.Services.Interface
 {
-    public interface IWalletService
+    public interface IWalletService 
     {
         Task<ChargeWalletResult> ChargeWalletAsync(ChargeWalletViewModel model);
         Task<ChargeWalletResult> AdminChargeWalletAsync(ChargeWalletViewModel model);

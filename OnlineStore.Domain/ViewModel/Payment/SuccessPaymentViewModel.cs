@@ -12,4 +12,4 @@ namespace Eshop.Domain.ViewModels.Payment
 
         public string RefId { get; set; }
     }
-}
+} 

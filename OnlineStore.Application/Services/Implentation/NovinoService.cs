@@ -1,18 +1,13 @@
 ﻿using Newtonsoft.Json;
 using OnlineStore.Application.Services.Interface;
 using OnlineStore.Domain.DTOs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace OnlineStore.Application.Services.Implentation
 {
     public class NovinoService(HttpClient httpClient) : INovinoService
     {
-        public async Task<NovinoGetPaymentUrlResponseDto> CreateRequestAsync(NovinoGetPaymentUrlRequestDto model)
+        public async Task<NovinoGetPaymentUrlResponseDto> CreateRequestAsync(NovinoGetPaymentUrlRequestDto model) 
         {
             string body = JsonConvert.SerializeObject(model);
             HttpContent content = new StringContent(body, Encoding.UTF8, "application/json");

@@ -32,7 +32,7 @@ namespace OnlineStore.Data.ImplentationRepository
         public async Task<Role?> EditRoleByIdAsync(int roleId)
        => await context.Roles.FirstOrDefaultAsync(r => r.RoleId == roleId);
 
-        public async Task<List<int>> GetRolePermissionAsync(int roleId)
+        public async Task<List<int>> GetRolePermissionAsync(int roleId) 
      => await context.RolePermissions.Where(r => r.RoleId == roleId)
             .Select(p => p.PermissionId).ToListAsync();
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OnlineStore.Domain.DTOs
 {
-    public class NovinoVerifyPaymentResponseDto
+    public class NovinoVerifyPaymentResponseDto 
     {
         [JsonProperty("status")]
         public string Status { get; set; }

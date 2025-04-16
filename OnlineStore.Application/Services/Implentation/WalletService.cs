@@ -73,7 +73,7 @@ namespace OnlineStore.Application.Services.Implentation
             await walletRepository.ChargeWalletAsync(wallet);
             await walletRepository.SaveAsync();
             model.WalletId = wallet.WalletId;
-            return ChargeWalletResult.Success;
+            return ChargeWalletResult.Success; 
         }
 
         public async Task<List<WalletViewModel>> GetWalletByUserIdAsync(int userId)

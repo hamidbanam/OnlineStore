@@ -10,7 +10,7 @@ namespace OnlineStore.Domain.InterfaceRepository
 {
     public interface IWalletRepository
     {
-        Task ChargeWalletAsync(Wallet wallet);
+        Task ChargeWalletAsync(Wallet wallet); 
         Task SaveAsync();
         Task<List<Wallet>> GetWalletByUserIdAsync(int userId);
         Task<int> CreditorAmountAsunc(int userId);

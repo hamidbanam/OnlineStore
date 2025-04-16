@@ -14,7 +14,7 @@ namespace OnlineStore.Data.ImplentationRepository
     public class WalletRepository(OnlineStoreContext context) : IWalletRepository
     {
         public async Task ChargeWalletAsync(Wallet wallet) 
-      => await context.Wallets.AddAsync(wallet);
+      => await context.Wallets.AddAsync(wallet); 
 
         public async Task<int> CreditorAmountAsunc(int userId)
         => await context.Wallets.Where(w => w.UserId == userId && w.Payed && w.Type == TransactionType.Creditor).SumAsync(w=>w.Price);

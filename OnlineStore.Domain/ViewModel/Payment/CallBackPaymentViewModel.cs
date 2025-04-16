@@ -16,10 +16,10 @@ namespace OnlineStore.Domain.ViewModel.Payment
         public string? RefId { get; set; }
     }
 
-    public enum CallBackPaymentResult
-    {
-        SuccessPayment,
-        ErrorPayment,
-        NotFoundWallet
-    }
+        public enum CallBackPaymentResult 
+        {
+            SuccessPayment,
+            ErrorPayment,
+            NotFoundWallet
+        }
 }

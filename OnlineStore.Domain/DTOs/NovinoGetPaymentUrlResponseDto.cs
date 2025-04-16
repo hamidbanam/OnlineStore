@@ -11,7 +11,7 @@ namespace OnlineStore.Domain.DTOs
         public string Message { get; set; }
 
         [JsonProperty("data")]
-        public NovinoGetPaymentUrlRequestData Data { get; set; }
+        public NovinoGetPaymentUrlRequestData Data { get; set; } 
 
         [JsonProperty("errors")]
         public object Errors { get; set; }

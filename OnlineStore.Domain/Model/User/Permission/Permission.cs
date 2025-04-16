@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OnlineStore.Domain.Model.User.Permission
 {
-    public class Permission
+    public class Permission 
     {
         public int PermissionId { get; set; }
         public string PermissionTitle { get; set; }

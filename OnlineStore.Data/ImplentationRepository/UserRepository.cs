@@ -168,7 +168,7 @@ namespace OnlineStore.Data.ImplentationRepository
       => await context.Users.Where(u => u.UserId == userId).ExecuteUpdateAsync(
           s => s.SetProperty(u => u.IsDelete, true));
 
-        public async Task<bool> CheckPermissionAsync(string permissionTitle, int userId)
+        public async Task<bool> CheckPermissionAsync(string permissionTitle, int userId) 
         {
             Permission permission = await context.Permissions.FirstOrDefaultAsync(p => p.PermissionTitle == permissionTitle);
 

@@ -87,7 +87,7 @@ namespace OnlineStore.Application.Services.Implentation
                     return ChangeUserNameResult.IsUserNameDublicated;
                 }
             }
-            await userRepository.ChangeUserNameAsync(model);
+            await userRepository.ChangeUserNameAsync(model); 
             await userRepository.SaveAsync();
             return ChangeUserNameResult.Success;
         }
@@ -228,7 +228,7 @@ namespace OnlineStore.Application.Services.Implentation
             {
                 return ForgotPasswordResult.IsActiveInvalid;
             }
-            #region SendSms
+            #region SendSms 
             int sendCode = SecretCode.RandomString();
             if (await userRepository.IsExsitsMobileAsync(model.Mobile))
             {

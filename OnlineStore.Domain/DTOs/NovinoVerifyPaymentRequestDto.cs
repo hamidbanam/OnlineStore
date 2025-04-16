@@ -11,7 +11,7 @@ namespace OnlineStore.Domain.DTOs
     {
         [JsonProperty("merchant_id")]
         public string MerchantId { get; set; }
-
+         
         [JsonProperty("amount")]
         public int Amount { get; set; }
 

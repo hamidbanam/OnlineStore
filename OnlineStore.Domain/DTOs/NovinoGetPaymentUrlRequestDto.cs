@@ -2,7 +2,7 @@
 using System.Text.Json.Serialization;
 
 namespace OnlineStore.Domain.DTOs
-{
+{ 
     public class NovinoGetPaymentUrlRequestDto
     {
         [JsonProperty("merchant_id")]

@@ -4,6 +4,6 @@
     {
         public string Message { get; set; }
 
-        public string RefId { get; set; }
+        public string RefId { get; set; } 
     }
 }

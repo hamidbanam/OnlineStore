@@ -11,7 +11,7 @@ namespace OnlineStore.Domain.Model.User.Permission
     public class RolePermission
     {
         public int RP_Id { get; set; }
-        public int RoleId { get; set; }
+        public int RoleId { get; set; } 
         public int PermissionId { get; set; }
 
         #region Relations

@@ -15,7 +15,7 @@ namespace OnlineStore.Domain.ViewModel.Payment
         public string? PaymentUrl { get; set; }
     }
 
-    public enum StartPaymentResult
+    public enum StartPaymentResult 
     {
         Success,
         NotFoundWallet,

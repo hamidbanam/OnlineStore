@@ -19,7 +19,7 @@ namespace OnlineStore.Application.Services.Implentation
             await roleRepository.SaveAsync();
         }
 
-        public async Task<EditRoleViewModel> EditRolePermissionAsync(int roleId)
+        public async Task<EditRoleViewModel> EditRolePermissionAsync(int roleId) 
         {
             Role role = await roleRepository.EditRoleByIdAsync(roleId);
             EditRoleViewModel model = new()

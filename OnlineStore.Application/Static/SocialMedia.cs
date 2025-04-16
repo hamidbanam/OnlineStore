@@ -17,5 +17,6 @@ namespace OnlineStore.Application.Static
 
         [JsonProperty("Whatsapp")]
         public static string Whatsapp { get; set; }
+
     }
 }

@@ -10,6 +10,6 @@ namespace OnlineStore.Application.Services.Interface
     public interface INovinoService
     {
         Task<NovinoGetPaymentUrlResponseDto> CreateRequestAsync(NovinoGetPaymentUrlRequestDto model);
-        Task<NovinoVerifyPaymentResponseDto> VerifyAsync(NovinoVerifyPaymentRequestDto model);
+        Task<NovinoVerifyPaymentResponseDto> VerifyAsync(NovinoVerifyPaymentRequestDto model); 
     }
 }
