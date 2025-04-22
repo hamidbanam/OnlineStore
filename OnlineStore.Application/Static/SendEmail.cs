@@ -13,7 +13,7 @@ namespace OnlineStore.Application.Static
         {
             MailMessage mail = new MailMessage();
             SmtpClient SmtpServer = new SmtpClient();
-            mail.From = new MailAddress("eshop.co.1402@gmail.com", "فروشگاه منطقه آزاد انزلی");
+            mail.From = new MailAddress("Email", "Description");
             mail.To.Add(To);
             mail.Subject = Subject;
             mail.Body = Body;
@@ -22,7 +22,7 @@ namespace OnlineStore.Application.Static
             SmtpServer.Host = "smtp.gmail.com";
             SmtpServer.Port = 587;
             SmtpServer.EnableSsl = true;
-            SmtpServer.Credentials = new System.Net.NetworkCredential("eshop.co.1402@gmail.com", "pblz hiwa lduj zgmj");
+            SmtpServer.Credentials = new System.Net.NetworkCredential("Email", "password");
 
             SmtpServer.Send(mail);
 
